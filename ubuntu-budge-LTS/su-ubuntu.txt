@@ -1,0 +1,9 @@
+Cómo habilitar root en Ubuntu
+
+Los que deseen tener root habilitado es simple, con 2 comandos podremos hacerlo.
+
+sudo -i
+
+Esto nos permitirá acceder como root, claro, luego de que pongamos el password de nuestro usuario.
+
+sudo passwd root

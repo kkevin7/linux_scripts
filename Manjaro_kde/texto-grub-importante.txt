@@ -1,0 +1,6 @@
+initramfs-4.9-x86_64.img
+
+initrd	/boot/intel-ucode.img /boot/initramfs-4.9-x86_64.img
+
+
+https://forum.antergos.com/topic/5422/problemas-con-el-grub-me-carga-directamente-windows-10/7

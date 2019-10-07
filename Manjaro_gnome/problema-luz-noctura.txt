@@ -1,0 +1,5 @@
+#----- Entregar al grub-manjaro
+sudo machinectl shell gdm@
+
+#------ Modificar opcion luz nocturna
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false

@@ -1,0 +1,65 @@
+sudo nano /etc/apt/sources.list
+
+America: Estados Unidos, Mexico, Rep. Dominicana, Puerto Rico, etc.
+
+1-deb ftp://mirror.jmu.edu/pub/deepin/ unstable main contrib non-free
+
+2-deb ftp://ftp.gtlib.gatech.edu/pub/deepin/ unstable main contrib non-free
+
+3-deb ftp://mirror.nexcess.net/deepin/ unstable main contrib non-free
+
+Espana y Europa:
+
+1-deb ftp://deepin.ipacct.com/deepin/ unstable main contrib non-free 
+
+2-deb ftp://mirror.bytemark.co.uk/linuxdeepin/deepin/ unstable main contrib non-free
+
+3-deb ftp://mirror.inode.at/deepin/ unstable main contrib non-free
+
+Dinamarca:
+
+4-deb ftp://mirror.dotsrc.org/deepin/ unstable main contrib non-free
+
+Sudamerica:
+
+1-deb ftp://sft.if.usp.br/deepin/ unstable main contrib non-free
+
+Rusia: 
+
+1-deb ftp://mirror.yandex.ru/mirrors/deepin/packages/ unstable main contrib non-free 
+
+Burgaria:
+
+1-deb ftp://deepin.ipacct.com/deepin/ unstable main contrib non-free 
+
+Reinos Unidos: 
+
+1-deb ftp://mirror.bytemark.co.uk/linuxdeepin/deepin/ unstable main contrib non-free
+
+2-deb ftp://ftp.mirrorservice.org/sites/packages.linuxdeepin.com/deepin/ unstable main contrib non-free
+
+Germania:
+
+1-deb ftp://ftp.gwdg.de/pub/linux/linuxdeepin/ unstable main contrib non-free
+
+2-deb ftp://mirror2.tuxinator.org/deepin/ unstable main contrib non-free
+
+3-deb ftp://ftp.fau.de/deepin/ unstable main contrib non-free
+
+Suecia:
+
+1-deb ftp://ftp.portlane.com/pub/os/linux/deepin/ unstable main contrib non-free
+
+South Africa:
+
+1-deb ftp://ftp.saix.net/pub/linux/distributions/linux-deepin/deepin/ unstable main contrib non-free
+
+Philippines:
+
+1-deb ftp://mirrors.dotsrc.org/deepin/ unstable main contrib non-free
+
+Japon: 
+
+1-deb ftp://ftp.kddilabs.jp/Linux/packages/deepin/deepin/ unstable main contrib non-free
+
+

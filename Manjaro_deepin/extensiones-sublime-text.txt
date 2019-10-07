@@ -1,0 +1,44 @@
+------Extensiones Sublime-Text-----------
+
+- Emmet								---> Automatiza la creación de bloques de etiquetas HTML utilizando abreviaciones.
+- Dockerfile Syntax Highlinghting	---> Syntaxis de Docker
+- GAS-x86							---> Syntaxis de Ensamblador Linux.
+- BracketHighlighter				---> Se encarga de destacar los límites de cada pareja de llaves.
+- Alignment 						---> Con este plugin se puede  organizar y alinear las variables, tan solo al seleccionar y presionando las teclas ctrl+alt+a se podrá alinear.
+- ColorPicker						---> Permite seleccionar en la paleta de color un color especifico, muy bueno al escribir código CSS. Para usar presione ctrl+alt+c.
+- DocBlockr							---> Permite insertar comentario para la documentación,  tiene soporte para PHP ,ActionScript ,CoffeeScript, Java,Apex,Objective C,C,C ++ y entre otros, para usar escriba las primeras lineas  /** presione la tecla tab.
+- LiveReload  ---> Refresca el navegador cuando guardas un archivo para ver los últimos cambios que hemos realizado.
+- Auto Filename ---> El primer plugin imprescindible que permite vincular archivos  mediante la sugerencia ya sean imágenes, hojas de estilo al usar etiquetas  como:  href, src, en php require_once y otros.
+
+#---- Python extensiones -----
+*Djaneiro
+*Pylinter
+*SublimePythonIDE
+
+
+---------No usadar pero intersante-------
+
+- Sidebar Enhancements	----> Mejora la barra lateral y nos deja acceder a más opciones para gestionar los archivos de nuestro proyecto. 
+- SFTP ---> Este plugin permite la conexión con el servidor FTP, así editar los archivos fuentes que están cargado en nuestro servidor. Para realizar la conexión se debe agregar el archivo JSON en nuestro proyecto y configurarlo los datos de la conexión.
+- Seti UI ---> Es un tema para mejorar la interfaz de la lista de los archivos , asocia icono a cada archivo, por defecto sublime tex3 tiene un tema que casi es aburrido.  se debe pegar el siguiente código en –>Preferences ->Settings-User:
+{
+	"caret_extra_bottom": 3,
+	"caret_extra_top": 3,
+	"caret_extra_width": 2,
+	"font_size": 10,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"overlay_scroll_bars": "enabled",
+	"theme": "Seti.sublime-theme"
+}
+
+Dafault:
+{
+	"ignored_packages":
+	[
+		"Vintage"
+	]
+}

@@ -1,0 +1,67 @@
+#https://debgen.simplylinux.ch/
+
+#------------------------------------------------------------------------------#
+#                   OFFICIAL DEBIAN REPOS                    
+#------------------------------------------------------------------------------#
+
+###### Debian Main Repos
+deb http://ftp.us.debian.org/debian/ testing main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ testing main contrib non-free
+
+deb http://ftp.us.debian.org/debian/ testing-updates main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ testing-updates main contrib non-free
+
+deb http://security.debian.org/ testing/updates main
+deb-src http://security.debian.org/ testing/updates main
+
+#------------------------------------------------------------------------------#
+#                      UNOFFICIAL  REPOS                       
+#------------------------------------------------------------------------------#
+
+###### 3rd Party Binary Repos
+###Debian Multimedia
+deb http://www.deb-multimedia.org testing main non-free
+
+###Docker
+#deb https://apt.dockerproject.org/repo/ debian-stretch main
+
+###Google Chrome Browser
+deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+
+###Google Earth
+deb [arch=amd64] http://dl.google.com/linux/earth/deb/ stable main
+
+###MariaDB
+deb [arch=amd64] http://mirror.rackspeed.de/mariadb.org/repo/10.1/debian stretch main
+deb-src [arch=amd64] http://mirror.rackspeed.de/mariadb.org/repo/10.1/debian stretch main
+
+###MEGA Sync Client
+deb http://mega.nz/linux/MEGAsync/Debian_9.0/ ./
+
+###Mozilla Firefox Aurora
+deb http://mozilla.debian.net/ experimental firefox-aurora
+
+###Paper GTK Theme
+deb http://ppa.launchpad.net/snwh/pulp/ubuntu yakkety main
+deb-src http://ppa.launchpad.net/snwh/pulp/ubuntu yakkety main
+
+###Papirus GTK Theme
+deb http://ppa.launchpad.net/papirus/papirus/ubuntu yakkety main 
+deb-src http://ppa.launchpad.net/papirus/papirus/ubuntu yakkety main 
+
+###Spotify
+deb http://repository.spotify.com stable non-free
+
+
+
+
+apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 5C808C2B65558117
+curl -fsSL https://apt.dockerproject.org/gpg | sudo apt-key add -
+apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 1397BC53640DB551
+apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 1397BC53640DB551
+apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys F1656F24C74CD1D8
+apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 4B4E7A9523ACD201
+apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 85A3D26506C4AE2A
+apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 3766223989993A70
+apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys E58A9D36647CAE7F
+apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 13B00F1FD2C19886

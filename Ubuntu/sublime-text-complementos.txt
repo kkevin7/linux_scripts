@@ -1,0 +1,22 @@
+Complementos de Sublime Text
+
+-emmet
+-Bracket Hightlither
+-Color Picker
+-LiveReload
+-NASM x​86 Assembly
+-Dockerfile
+-ayu
+
+
+
+
+-Sidebar Enhancements: Mejora la barra lateral y nos deja acceder a más opciones para gestionar los archivos de nuestro proyecto.
+
+-BracketHighlighter: Con este plugin, resaltaremos las etiquetas de apertura y cierre, nos ayudará a leer mejor y más rápido nuestro código.
+
+-SFTP: Integra un cliente FTP en nuestro Sublime Text, simplemente con guardar el archivo, lo actualiza en nuestro servidor al instante.
+
+-LiveReload: Refresca el navegador cuando guardas un archivo para ver los últimos cambios que hemos realizado
+
+-Alignment: Obligado para indentar bien vuestro código, un código bien estructurado es una buena práctica que debes seguir para tener un código de fácil lectura.

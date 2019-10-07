@@ -1,0 +1,22 @@
+-------problema de repositorios----------------------------
+Ir a software sources y se marcar la casilla que esta fallando
+
+
+--------Definiendo la Variable de Entorno JAVA_HOME--------------
+Muchos programas, como los servidores de Java, usan la variable de entorno JAVA_HOME para determinar la ubicación de la instalación de Java. Para establecer esta variable de entorno, primero debe averiguar donde está instalado Java. Puede hacer esto mediante la ejecución del mismo comando que en el apartado anterior.
+
+sudo update-alternatives --config java
+Copiar la ruta de la instalación preferida y luego abrir /etc/environment usando nano o su editor de texto favorito.
+
+sudo nano /etc/environment
+Al final de este archivo, agregue la siguiente línea, asegurándose de sustituir la ruta resaltada con su ruta copiada.
+
+/etc/environment
+JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+Guarde, salga del archivo y vuelva a cargarlo.
+
+source /etc/environment
+Ahora puede probar si la variable de entorno se ha establecido mediante la ejecución del siguiente comando:
+
+echo $JAVA_HOME
+Esto devolverá la ruta que acaba de establecer.

@@ -1,0 +1,16 @@
+
+#Temas PAPER
+add-apt-repository ppa:snwh/pulp
+# update repository info
+apt-get update
+# install icon theme
+apt-get install paper-icon-theme
+# install gtk theme
+apt-get install paper-gtk-theme
+# install cursor theme
+apt-get install paper-cursor-theme
+
+#Icono ultra-flat
+sudo add-apt-repository ppa:noobslab/icons
+sudo apt-get update
+sudo apt-get install ultra-flat-icons ultra-flat-icons-green ultra-flat-icons-orange
