@@ -1,42 +1,96 @@
+#!/bin/bash
+
 #--------Actualizar Majaro----------
 sudo pacman-mirrors --fasttrack
 sudo pacman -Syyu --noconfirm
 
 #--------Packetes de compilacion de sistema---------
-#sudo pacman -Syu base-devel
-sudo pacman -Syu --noconfirm autoconf automake binutils bison fakeroot file findutils flex gawk  gcc gettext  grep  groff gzip libtool m4 make pacman patch pkg-config sed sudo systemd texinfo  util-linux which
+sudo pacman -Syu base-devel
+#sudo pacman -Syu --noconfirm autoconf automake binutils bison fakeroot file findutils flex gawk  gcc gettext  grep  groff gzip libtool m4 make pacman patch pkg-config sed sudo systemd texinfo  util-linux which
 
-#------- yaourt ----------------
-sudo pacman -S --noconfirm yaourt
+#------- yay ----------------
+#sudo pacman -S --noconfirm yay
+sudo pacman -S --noconfirm yay
 
-#--------Actualizar yaourt----------
-yaourt -Syyu --noconfirm --devel --aur
+#--------Actualizar yay----------
+#yay -Syyu --noconfirm --devel --aur
+yay -Syua --noconfirm
 
 #-------- Kernel 4.14 Linux ---------
-sudo mhwd-kernel -i linux414
-sudo update-grub
+#sudo mhwd-kernel -i linux414
+#sudo update-grub
 #sudo pacman -R --noconfirm linux414 linux414-headers linux414-extramodules
 
 #------ gedit editor text---------------
 sudo pacman -S --noconfirm gedit
  
 #------- google chrome (fakeroot) ------------------ 
-yaourt -S --noconfirm google-chrome
+#yay -S --noconfirm google-chrome
+sudo pacman -S --noconfirm chromium 
 
 #------- Sublime Text ---------------
-yaourt -S --noconfirm sublime-text-dev
+yay -S --noconfirm sublime-text-dev
 
-#-------- Java JDK (last realease) (fakeroot)-------------
-#yaourt -S --noconfirm jdk
+#------- Visual Studio Code -------------
+yay -S --noconfirm visual-studio-code-bin
+#extensions
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension thekalinga.bootstrap4-vscode
+code --install-extension lihui.vs-color-picker
+code --install-extension vincaslt.highlight-matching-tag
+code --install-extension Zignd.html-css-class-completion
+code --install-extension felixfbecker.php-intellisense
+code --install-extension bmewburn.vscode-intelephense-client
+code --install-extension cliffordfajardo.hightlight-selections-vscode
+code --install-extension HookyQR.beautify
+code --install-extension ms-python.python
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension EQuimper.react-native-react-redux
+code --install-extension Prisma.vscode-graphql
+code --install-extension kumar-harsh.graphql-for-vscode
+code --install-extension esbenp.prettier-vscode
+code --install-extension CoenraadS.bracket-pair-colorizer
+code --install-extension christian-kohler.path-intellisense
+code --install-extension SetiawanJodi.myci-extension
+code --install-extension small.php-ci
 
 #-------- Java JDK8 (fakeroot)------------------
-yaourt -S --noconfirm jdk8
+#yay -S --noconfirm jdk8
+#archlinux-java status
+#sudo archlinux-java set java-8-jdk
+
+#-------- Java OpenJDK8 ------------------------
+sudo pacman -S --noconfirm jdk8-openjdk
+sudo archlinux-java set java-8-openjdk
+
+#-------- Java JDK11 (fakeroot)------------------
+#yay -S --noconfirm jdk11
+#archlinux-java status
+#sudo archlinux-java set java-11-jdk
+
+#------- Java OpenJDK11 ----------------------------
+#sudo pacman -S jdk11-openjdk --noconfirm
+#sudo archlinux-java set java-11-openjdk
+
+#-------- Java JDK (last realease) -------------
+#yay -S --noconfirm jdk
 
 #---------- MySql Workbeach ---------------------
 sudo pacman -S --noconfirm mysql-workbench
 
-#---------- Netbeans -----------------
-sudo pacman -S --noconfirm netbeans
+#---------- Netbeans 8.2 -----------------
+yay -S --noconfirm netbeans8
+#sudo pacman -S --noconfirm netbeans
+yay -S --noconfirm payara
+sudo chown -R $USER /opt/payara5/
+
+#---------- Eclipse IDE ---------------------
+#sudo pacman -S --noconfirm eclipse-java
+#sudo pacman -S --noconfirm eclipse-jee
+
+#----------- Apache Netbeans -----------------------
+#yay -S --noconfirm apache-netbeans
+#sudo archlinux-java set java-8-jdk
 
 #------------- Docker -----------------------------------
 sudo pacman -S --noconfirm docker
@@ -48,39 +102,58 @@ sudo usermod -a -G docker $(id -un)
 #------------ Docker compose ----------------------------
 sudo pacman -S --noconfirm docker-compose
 
+#------------ comando (tree) ----------------------------
+sudo pacman -S --noconfirm tree
+
 #---------------- Maven ---------------------------------
 sudo pacman -S --noconfirm maven
 
+#------------ git ---------------------------
+git config --global user.name "Kevin Martinez"
+git config --global user.email "kkevinmartinez7@gmail.com"
+
 #------------------- QT Creator ----------------------
-sudo pacman -S --noconfirm qtcreator
+#sudo pacman -S --noconfirm qtcreator
 #libs
-yaourt -S --noconfirm qt5-websockets
+#yay -S --noconfirm qt5-websockets
 
 #----------------- WPS Office ----------------------------
-yaourt -S --noconfirm wps-office
-yaourt -S --noconfirm wps-office-extension-spanish-dictionary
+#yay -S --noconfirm wps-office
+#yay -S --noconfirm wps-office-extension-spanish-dictionary
+#yay -S wps-office-mui-es-mx --noconfirm
 
 #------------------ Libre Office -------------------------
 #sudo pacman -R --noconfirm libreoffice-still
 sudo pacman -S --noconfirm libreoffice-fresh-es
-sudo pacman -S --noconfirm hunspell-es hyphen-es mythes-es
+sudo pacman -S --noconfirm hunspell-es_sv hyphen-es mythes-es
+
+#------------------ Microsoft Office onlie -----------------
+sudo pacman -S --noconfirm ms-office-online
+
+#------------------- Etcher (Boot USB) ---------------------
+#sudo pacman -S --noconfirm etcher
 
 #------------------- GParted ------------------------------
 sudo pacman -S --noconfirm gparted
 
 #------------ UnRAR o RAR --------------------------------------
 sudo pacman -S --noconfirm unrar
-#yaourt -S --noconfirm rar
+#yay -S --noconfirm rar
+
+#--------------- Viewnior (Visualizador de imagenes) -----------
+sudo pacman -S --noconfirm viewnior
 
 #----------- qBittorrent (alternativa a utorrent) -------
 sudo pacman -S --noconfirm qbittorrent
 
 #----------------- JDownloader ----------------
-yaourt -S --noconfirm jdownloader2
+yay -S --noconfirm jdownloader2
+
+#---------- pinta (editor de imagen)-------------------------
+#sudo pacman -S --noconfirm Pinta
 
 #------------ Wireshark ----------------------------------
 sudo pacman -S --noconfirm wireshark-cli wireshark-common wireshark-qt
-
 sudo groupadd wireshark
 sudo usermod -a -G wireshark $USER
 sudo chgrp $(id -un) /usr/bin/dumpcap
@@ -94,49 +167,54 @@ sudo pacman -S --noconfirm dnsutils
 sudo pacman -S --noconfirm iperf3
 sudo pacman -S --noconfirm iperf
 
-#----------- Bind9 -------------------------
-sudo pacman -S --noconfirm bind
-
 #----------- htop (ver procesos) ---------------------
 sudo pacman -S --noconfirm htop
 
-#------------ Liberias de Libc para gcc --------------------
-#sudo pacman -S --noconfirm libstdc++5
-#sudo pacman -S --noconfirm gcc-multilib
-
 #----------- Pgadmin Postgres-----------------------------
-sudo pacman -S --noconfirm pgadmin3
+#sudo pacman -S --noconfirm pgadmin3
+sudo pacman -S --noconfirm pgadmin4
 
 #----------- PgModeler Postgres --------------------------
-yaourt -S --noconfirm pgmodeler
+#yay -S --noconfirm pgmodeler
 
 #------------ Foxit Reader -----------------------
-yaourt -S --noconfirm foxitreader
+yay -S --noconfirm foxitreader
 
-#---------- Intellij IDE --------------------
+#----------- Reproductor vlc ----------------------
+sudo pacman -S --noconfirm vlc
+
+#------------ Gimp ----------------------
+#sudo pacman -S --noconfirm gimp
+
+#------------ NodeJS --------------------
+sudo pacman -S --noconfirm nodejs npm
+#React
+sudo npm install -g create-react-app
+
+#---------- Web Storm -----------------------------
+#yay -S --noconfirm webstorm
+#yay -S --noconfirm phpstrom
+
+#---------- Intellij IDE Ultimate --------------------
+#yay -S --noconfirm intellij-idea-ultimate-edition
+
+#---------- Intellij IDE Comunity -----------------
 #sudo pacman -S --noconfirm intellij-idea-community-edition
-yaourt -S --noconfirm intellij-idea-ultimate-edition
 
-#------------ UNetbootin ---------------------
-yaourt -S --noconfirm unetbootin
-
-#------------ Cligrab --------------------------
-yaourt -S --noconfirm clipgrab-qt5
-
-#------------ CrossOver -------------------------
-yaourt -S --noconfirm crossover
+#----------- Robo 3T for MongoDB -----------------------
+yay -S robo3t-bin --noconfirm
 
 #----------- Virtualbox -----------------------------
 sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso 
-#sudo pacman -S --noconfirm linux49-virtualbox-host-modules
-sudo pacman -S --noconfirm linux414-virtualbox-host-modules
+sudo pacman -S --noconfirm $(pacman -Qsq "^linux" | grep "^linux[0-9]*[-rt]*$" | awk '{print $1"-virtualbox-host-modules"}' ORS=' ') 
+#sudo pacman -S --noconfirm linux419-virtualbox-host-modules
 sudo gpasswd -a $USER vboxusers
 sudo modprobe vboxdrv
 sudo vboxmanage hostonlyif create
 
 #------------ Virt-manager (KVM) ---------------
-sudo pacman -S inxi dmidecode gparted && sudo inxi -Fxm
-sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
+sudo pacman -S --noconfirm inxi dmidecode gparted && sudo inxi -Fxm
+sudo pacman -S --noconfirm virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 sudo usermod -a -G kvm $(id -un)
@@ -147,84 +225,33 @@ sudo virsh net-start default
 
 
 
-
-#----------- GNS3 ------------------------
-sudo pacman -S --noconfirm libelf libpcap cmake
-yaourt -S --noconfirm dynamips
-sudo pacman -S --noconfirm subversion
-sudo pacman -S --noconfirm iniparser
-yaourt -S --noconfirm iouyap
-yaourt -S --noconfirm ubridge
-yaourt -S --noconfirm vboxwrapper
-sudo pacman -S --noconfirm samba
-sudo pacman -S --noconfirm lib32-openssl lib32-gcc-libs
-sudo pacman -S --noconfirm qemu
-sudo pacman -S --noconfirm libvirt
-yaourt --m-arg "--skipchecksums" -S --noconfirm gns3-server
-yaourt -S --noconfirm gns3-gui
-
-
-#-------- GNS3 file iouyap ------------------
-#Tiene que existir el directorio /usr/local/bin
-cd /tmp
-git clone https://github.com/GNS3/iouyap.git
-cd iouyap*
-bison -ydv netmap_parse.y
-flex netmap_scan.l
-gcc -Wall -g *.c -o iouyap -liniparser -lpthread
-strip --strip-unneeded iouyap
-sudo mv iouyap /usr/local/bin/
-rm -R -f /tmp/iouyap
-cd $HOME
-sudo setcap cap_net_admin,cap_net_raw=ep $(which iouyap)
-
-#-------- GNS3 file iouyap ------------------
-cd /tmp
-git clone https://github.com/GNS3/ubridge.git
-cd ubridge*
-make
-sudo make install
-sudo rm -R -f /tmp/ubridge
-cd $HOME
-
-#--------- GNS3 file vpcs (suele dar error) -------------------
-cd /tmp
-git clone https://github.com/GNS3/vpcs.git
-cd vpcs/src
-./mk.sh
-sudo cp -r vpcs /usr/local/bin/
-sudo rm -R -f /tmp/vpcs
-cd $HOME
-
-
 #------------- Imagenes Docker -----------------------------}
-docker pull mariadb:latest 
-docker pull postgres:latest 
-docker pull debian:stretch
-docker pull payara/server-full 
+#docker pull mariadb:latest 
+#docker pull postgres:latest 
+#docker pull debian:stretch
+#docker pull payara/server-full 
 
 
 
 #------------TEMAS MANJARO------------------------
 
 
-#----------- ICONOS----------------------------
+################  ICONOS #############################
 
 #----------- Papirus -----------------------------
-#yaourt -Sy --noconfirm papirus-icon-theme-git
+#yay -Sy --noconfirm papirus-icon-theme-git
 
 
-#----------- OTROS -------------------------------
+#################### OTROS #########################
 
 #----------- XAMPP PHP ----------------------
-#yaourt -S --noconfirm xampp
-
+#yay -S --noconfirm xampp
 
 #--------- Brackets (fakeroot)------------------ 
-#yaourt -S --noconfirm brackets
+#yay -S --noconfirm brackets
 
 #------------------ Lectores PDF (foxit fakeroot)--------------------------
-#yaourt -S --noconfirm foxitreader
+#yay -S --noconfirm foxitreader
 #sudo pacman -S --noconfirm okular
 
 #----------- viewnior (visualizador de imagenes) -----------
@@ -235,4 +262,12 @@ docker pull payara/server-full
 
 #----------- Imagen a texto ---------------
 #sudo pacman -S ocrfeeder
-#yaourt -S tesseract 
+#yay -S tesseract 
+
+#------------ UNetbootin ---------------------
+#yay -S --noconfirm unetbootin
+
+#------------ Cligrab --------------------------
+#yay -S --noconfirm clipgrab-qt5
+
+
