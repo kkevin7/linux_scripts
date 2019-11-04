@@ -16,6 +16,9 @@ sudo pacman -S --noconfirm yay
 #yay -Syyu --noconfirm --devel --aur
 yay -Syua --noconfirm
 
+#-------- Terminal zsh --------------
+sudo pacman -S --noconfirm zsh
+
 #-------- Kernel 4.14 Linux ---------
 #sudo mhwd-kernel -i linux414
 #sudo update-grub
@@ -61,6 +64,7 @@ code --install-extension small.php-ci
 
 #-------- Java OpenJDK8 ------------------------
 sudo pacman -S --noconfirm jdk8-openjdk
+sudo pacman -S --noconfirm jdk11-openjdk
 sudo archlinux-java set java-8-openjdk
 
 #-------- Java JDK11 (fakeroot)------------------
@@ -79,9 +83,10 @@ sudo archlinux-java set java-8-openjdk
 sudo pacman -S --noconfirm mysql-workbench
 
 #---------- Netbeans 8.2 -----------------
-yay -S --noconfirm netbeans8
-#sudo pacman -S --noconfirm netbeans
+#yay -S --noconfirm netbeans8
+sudo pacman -S --noconfirm netbeans
 yay -S --noconfirm payara
+sudo wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar -P /opt/payara5/glassfish/lib/
 sudo chown -R $USER /opt/payara5/
 
 #---------- Eclipse IDE ---------------------
@@ -111,6 +116,7 @@ sudo pacman -S --noconfirm maven
 #------------ git ---------------------------
 git config --global user.name "Kevin Martinez"
 git config --global user.email "kkevinmartinez7@gmail.com"
+git config --global core.editor "nano"
 
 #------------------- QT Creator ----------------------
 #sudo pacman -S --noconfirm qtcreator
@@ -179,6 +185,9 @@ sudo pacman -S --noconfirm pgadmin4
 
 #------------ Foxit Reader -----------------------
 yay -S --noconfirm foxitreader
+
+#------------ Adobe Acrobat Reader -----------------------
+yay -S --noconfirm acroread
 
 #----------- Reproductor vlc ----------------------
 sudo pacman -S --noconfirm vlc
