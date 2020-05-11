@@ -9,8 +9,12 @@ sudo pacman -Syu base-devel
 #sudo pacman -Syu --noconfirm autoconf automake binutils bison fakeroot file findutils flex gawk  gcc gettext  grep  groff gzip libtool m4 make pacman patch pkg-config sed sudo systemd texinfo  util-linux which
 
 #------- yay ----------------
-#sudo pacman -S --noconfirm yay
 sudo pacman -S --noconfirm yay
+
+#------------ snap------------ 
+sudo pacman -S --noconfirm snapd
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
 
 #--------Actualizar yay----------
 #yay -Syyu --noconfirm --devel --aur
@@ -36,8 +40,7 @@ yay -S --noconfirm sublime-text-dev
 
 #------- Visual Studio Code -------------
 yay -S --noconfirm visual-studio-code-bin
-#extensions
-code --install-extension vscode-icons-team.vscode-icons
+#---extensions---
 code --install-extension thekalinga.bootstrap4-vscode
 code --install-extension lihui.vs-color-picker
 code --install-extension vincaslt.highlight-matching-tag
@@ -47,8 +50,6 @@ code --install-extension bmewburn.vscode-intelephense-client
 code --install-extension cliffordfajardo.hightlight-selections-vscode
 code --install-extension HookyQR.beautify
 code --install-extension ms-python.python
-code --install-extension dsznajder.es7-react-js-snippets
-code --install-extension EQuimper.react-native-react-redux
 code --install-extension Prisma.vscode-graphql
 code --install-extension kumar-harsh.graphql-for-vscode
 code --install-extension esbenp.prettier-vscode
@@ -56,46 +57,31 @@ code --install-extension CoenraadS.bracket-pair-colorizer
 code --install-extension christian-kohler.path-intellisense
 code --install-extension SetiawanJodi.myci-extension
 code --install-extension small.php-ci
+code --install-extension wayou.vscode-todo-highlight
+#Syntaxis
+code --install-extension CoenraadS.bracket-pair-colorizer-2
+#React
+code --install-extension burkeholland.simple-react-snippets
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension EQuimper.react-native-react-redux
+code --install-extension xabikos.ReactSnippets
+code --install-extension joshjg.generate-react-component
+#Flutter
+code --install-extension Nash.awesome-flutter-snippets
+code --install-extension Dart-Code.dart-code
+code --install-extension Dart-Code.flutter
+code --install-extension quicktype.quicktype
+code --install-extension formulahendry.terminal
+#Icons
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension PKief.material-icon-theme
+#Theme
+code --install-extension fabiospampinato.vscode-monokai-night
 
-#-------- Java JDK8 (fakeroot)------------------
-#yay -S --noconfirm jdk8
-#archlinux-java status
-#sudo archlinux-java set java-8-jdk
-
-#-------- Java OpenJDK8 ------------------------
-sudo pacman -S --noconfirm jdk8-openjdk
-sudo pacman -S --noconfirm jdk11-openjdk
-sudo archlinux-java set java-8-openjdk
-
-#-------- Java JDK11 (fakeroot)------------------
-#yay -S --noconfirm jdk11
-#archlinux-java status
-#sudo archlinux-java set java-11-jdk
-
-#------- Java OpenJDK11 ----------------------------
-#sudo pacman -S jdk11-openjdk --noconfirm
-#sudo archlinux-java set java-11-openjdk
-
-#-------- Java JDK (last realease) -------------
-#yay -S --noconfirm jdk
-
-#---------- MySql Workbeach ---------------------
-sudo pacman -S --noconfirm mysql-workbench
-
-#---------- Netbeans 8.2 -----------------
-#yay -S --noconfirm netbeans8
-sudo pacman -S --noconfirm netbeans
-yay -S --noconfirm payara
-sudo wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar -P /opt/payara5/glassfish/lib/
-sudo chown -R $USER /opt/payara5/
-
-#---------- Eclipse IDE ---------------------
-#sudo pacman -S --noconfirm eclipse-java
-#sudo pacman -S --noconfirm eclipse-jee
-
-#----------- Apache Netbeans -----------------------
-#yay -S --noconfirm apache-netbeans
-#sudo archlinux-java set java-8-jdk
+#------------ git ---------------------------
+git config --global user.name "Kevin Martinez"
+git config --global user.email "kkevinmartinez7@gmail.com"
+git config --global core.editor "nano"
 
 #------------- Docker -----------------------------------
 sudo pacman -S --noconfirm docker
@@ -113,10 +99,45 @@ sudo pacman -S --noconfirm tree
 #---------------- Maven ---------------------------------
 sudo pacman -S --noconfirm maven
 
-#------------ git ---------------------------
-git config --global user.name "Kevin Martinez"
-git config --global user.email "kkevinmartinez7@gmail.com"
-git config --global core.editor "nano"
+#-------- Java OpenJDK8 ------------------------
+sudo pacman -S --noconfirm jdk8-openjdk
+sudo pacman -S --noconfirm jdk11-openjdk
+sudo pacman -S --noconfirm jdk-openjdk
+sudo archlinux-java set java-11-openjdk
+
+#---------- Netbeans -----------------
+sudo pacman -S --noconfirm netbeans
+yay -S --noconfirm payara
+sudo wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar -P /opt/payara5/glassfish/lib/
+sudo chown -R $USER /opt/payara5/
+
+#---------- Eclipse IDE ---------------------
+#sudo pacman -S --noconfirm eclipse-java
+#sudo pacman -S --noconfirm eclipse-jee
+
+#------------------ Android Studio -----------------------
+yay -S --noconfirm android-studio
+#-----SDK Tools-----
+#Android SDK Command-line Tools (necessary)
+
+#----------------- Flutter ----------------- 
+yay -S --noconfirm flutter
+sudo groupadd flutterusers
+sudo gpasswd -a $USER flutterusers
+sudo chown -R :flutterusers /opt/flutter
+sudo chmod -R g+w /opt/flutter
+newgrp flutterusers
+#flutter doctor --android-licenses
+
+#---------- Web Storm -----------------------------
+#yay -S --noconfirm webstorm
+#yay -S --noconfirm phpstrom
+
+#---------- Intellij IDE Ultimate --------------------
+#yay -S --noconfirm intellij-idea-ultimate-edition
+
+#---------- Intellij IDE Comunity -----------------
+#sudo pacman -S --noconfirm intellij-idea-community-edition
 
 #------------------- QT Creator ----------------------
 #sudo pacman -S --noconfirm qtcreator
@@ -129,7 +150,6 @@ git config --global core.editor "nano"
 #yay -S wps-office-mui-es-mx --noconfirm
 
 #------------------ Libre Office -------------------------
-#sudo pacman -R --noconfirm libreoffice-still
 sudo pacman -S --noconfirm libreoffice-fresh-es
 sudo pacman -S --noconfirm hunspell-es_sv hyphen-es mythes-es
 
@@ -176,9 +196,12 @@ sudo pacman -S --noconfirm iperf
 #----------- htop (ver procesos) ---------------------
 sudo pacman -S --noconfirm htop
 
+#---------- MySql Workbeach ---------------------
+sudo pacman -S --noconfirm mysql-workbench
+
 #----------- Pgadmin Postgres-----------------------------
 #sudo pacman -S --noconfirm pgadmin3
-sudo pacman -S --noconfirm pgadmin4
+#sudo pacman -S --noconfirm pgadmin4
 
 #----------- PgModeler Postgres --------------------------
 #yay -S --noconfirm pgmodeler
@@ -187,7 +210,7 @@ sudo pacman -S --noconfirm pgadmin4
 yay -S --noconfirm foxitreader
 
 #------------ Adobe Acrobat Reader -----------------------
-yay -S --noconfirm acroread
+#yay -S --noconfirm acroread
 
 #----------- Reproductor vlc ----------------------
 sudo pacman -S --noconfirm vlc
@@ -198,17 +221,13 @@ sudo pacman -S --noconfirm vlc
 #------------ NodeJS --------------------
 sudo pacman -S --noconfirm nodejs npm
 #React
-sudo npm install -g create-react-app
+sudo npm i -g create-react-app
+#TypeScript
+sudo npm i -g typescript 
 
-#---------- Web Storm -----------------------------
-#yay -S --noconfirm webstorm
-#yay -S --noconfirm phpstrom
+#------------ Yarn ------------------------------
+sudo pacman -S --noconfirm yarn
 
-#---------- Intellij IDE Ultimate --------------------
-#yay -S --noconfirm intellij-idea-ultimate-edition
-
-#---------- Intellij IDE Comunity -----------------
-#sudo pacman -S --noconfirm intellij-idea-community-edition
 
 #----------- Robo 3T for MongoDB -----------------------
 yay -S robo3t-bin --noconfirm
