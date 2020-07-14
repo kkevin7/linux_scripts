@@ -49,7 +49,6 @@ code --install-extension felixfbecker.php-intellisense
 code --install-extension bmewburn.vscode-intelephense-client
 code --install-extension cliffordfajardo.hightlight-selections-vscode
 code --install-extension HookyQR.beautify
-code --install-extension ms-python.python
 code --install-extension Prisma.vscode-graphql
 code --install-extension kumar-harsh.graphql-for-vscode
 code --install-extension esbenp.prettier-vscode
@@ -72,6 +71,15 @@ code --install-extension Dart-Code.dart-code
 code --install-extension Dart-Code.flutter
 code --install-extension quicktype.quicktype
 code --install-extension formulahendry.terminal
+#Python
+code --install-extension ms-python.python
+code --install-extension tht13.python
+code --install-extension donjayamanne.python-extension-pack
+code --install-extension tushortz.python-extended-snippets
+code --install-extension kevinrose.vsc-python-indent
+code --install-extension almenon.arepl
+code --install-extension dongli.python-preview
+code --install-extension formulahendry.code-runner
 #Icons
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension PKief.material-icon-theme
