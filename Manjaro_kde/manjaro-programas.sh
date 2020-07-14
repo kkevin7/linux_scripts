@@ -79,7 +79,6 @@ code --install-extension tushortz.python-extended-snippets
 code --install-extension kevinrose.vsc-python-indent
 code --install-extension almenon.arepl
 code --install-extension dongli.python-preview
-code --install-extension formulahendry.code-runner
 #Icons
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension PKief.material-icon-theme
