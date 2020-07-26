@@ -57,6 +57,7 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension SetiawanJodi.myci-extension
 code --install-extension small.php-ci
 code --install-extension wayou.vscode-todo-highlight
+code --install-extension formulahendry.auto-close-tag
 #Syntaxis
 code --install-extension CoenraadS.bracket-pair-colorizer-2
 #React
@@ -79,11 +80,22 @@ code --install-extension tushortz.python-extended-snippets
 code --install-extension kevinrose.vsc-python-indent
 code --install-extension almenon.arepl
 code --install-extension dongli.python-preview
+#Laravel 
+code --install-extension ryannaddy.laravel-artisan
+code --install-extension codingyu.laravel-goto-view
+code --install-extension cjhowe7.laravel-blade
+code --install-extension onecentlin.laravel5-snippets
+code --install-extension amirmarmul.laravel-blade-vscode
+code --install-extension onecentlin.laravel-blade
+code --install-extension kokororin.vscode-phpfmt
 #Icons
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension PKief.material-icon-theme
 #Theme
 code --install-extension fabiospampinato.vscode-monokai-night
+
+#python
+#pip install -U black
 
 #------------ git ---------------------------
 git config --global user.name "Kevin Martinez"
