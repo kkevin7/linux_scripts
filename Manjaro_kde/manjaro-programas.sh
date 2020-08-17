@@ -49,7 +49,6 @@ code --install-extension felixfbecker.php-intellisense
 code --install-extension bmewburn.vscode-intelephense-client
 code --install-extension cliffordfajardo.hightlight-selections-vscode
 code --install-extension HookyQR.beautify
-code --install-extension ms-python.python
 code --install-extension Prisma.vscode-graphql
 code --install-extension kumar-harsh.graphql-for-vscode
 code --install-extension esbenp.prettier-vscode
@@ -60,6 +59,7 @@ code --install-extension small.php-ci
 code --install-extension wayou.vscode-todo-highlight
 #Normal
 code --install-extension Tyriar.lorem-ipsum
+code --install-extension formulahendry.auto-close-tag
 #Syntaxis
 code --install-extension CoenraadS.bracket-pair-colorizer-2
 #React
@@ -74,11 +74,30 @@ code --install-extension Dart-Code.dart-code
 code --install-extension Dart-Code.flutter
 code --install-extension quicktype.quicktype
 code --install-extension formulahendry.terminal
+#Python
+code --install-extension ms-python.python
+code --install-extension tht13.python
+code --install-extension donjayamanne.python-extension-pack
+code --install-extension tushortz.python-extended-snippets
+code --install-extension kevinrose.vsc-python-indent
+code --install-extension almenon.arepl
+code --install-extension dongli.python-preview
+#Laravel 
+code --install-extension ryannaddy.laravel-artisan
+code --install-extension codingyu.laravel-goto-view
+code --install-extension cjhowe7.laravel-blade
+code --install-extension onecentlin.laravel5-snippets
+code --install-extension amirmarmul.laravel-blade-vscode
+code --install-extension onecentlin.laravel-blade
+code --install-extension kokororin.vscode-phpfmt
 #Icons
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension PKief.material-icon-theme
 #Theme
 code --install-extension fabiospampinato.vscode-monokai-night
+
+#python
+#pip install -U black
 
 #------------ git ---------------------------
 git config --global user.name "Kevin Martinez"
@@ -219,6 +238,9 @@ sudo pacman -S --noconfirm vlc
 
 #------------ Gimp ----------------------
 #sudo pacman -S --noconfirm gimp
+
+#------------------ Composer------------------
+sudo pacman -S --noconfirm composer
 
 #------------ NodeJS --------------------
 sudo pacman -S --noconfirm nodejs npm
