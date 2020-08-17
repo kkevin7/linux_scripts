@@ -241,6 +241,8 @@ sudo pacman -S --noconfirm vlc
 
 #------------------ Composer------------------
 sudo pacman -S --noconfirm composer
+#Laravel
+composer global require laravel/installer
 
 #------------ NodeJS --------------------
 sudo pacman -S --noconfirm nodejs npm
