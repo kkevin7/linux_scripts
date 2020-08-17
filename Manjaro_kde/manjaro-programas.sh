@@ -58,6 +58,8 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension SetiawanJodi.myci-extension
 code --install-extension small.php-ci
 code --install-extension wayou.vscode-todo-highlight
+#Normal
+code --install-extension Tyriar.lorem-ipsum
 #Syntaxis
 code --install-extension CoenraadS.bracket-pair-colorizer-2
 #React
