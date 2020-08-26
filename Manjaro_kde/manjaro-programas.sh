@@ -57,6 +57,8 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension SetiawanJodi.myci-extension
 code --install-extension small.php-ci
 code --install-extension wayou.vscode-todo-highlight
+#Normal
+code --install-extension Tyriar.lorem-ipsum
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension wakatime.vscode-wakatime
@@ -256,6 +258,11 @@ sudo pacman -S --noconfirm vlc
 
 #------------ Gimp ----------------------
 #sudo pacman -S --noconfirm gimp
+
+#------------------ Composer------------------
+sudo pacman -S --noconfirm composer
+#Laravel
+composer global require laravel/installer
 
 #------------ NodeJS --------------------
 sudo pacman -S --noconfirm nodejs npm
