@@ -58,14 +58,31 @@ code --install-extension SetiawanJodi.myci-extension
 code --install-extension small.php-ci
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension formulahendry.auto-close-tag
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension wakatime.vscode-wakatime
 #Syntaxis
 code --install-extension CoenraadS.bracket-pair-colorizer-2
+code --install-extension naumovs.color-highlight
+#HTML
+code --install-extension ecmel.vscode-html-css
+code --install-extension abusaidm.html-snippets
+#Javascript
+code --install-extension xabikos.javascriptsnippets
+code --install-extension mgmcdermott.vscode-language-babel
+code --install-extension ms-vscode.vscode-typescript-next
+code --install-extension sburg.vscode-javascript-booster
+code --install-extension jmsv.javascriptsnippetsstandard
+code --install-extension capaj.vscode-standardjs-snippets
 #React
 code --install-extension burkeholland.simple-react-snippets
 code --install-extension dsznajder.es7-react-js-snippets
 code --install-extension EQuimper.react-native-react-redux
 code --install-extension xabikos.ReactSnippets
 code --install-extension joshjg.generate-react-component
+#React Native
+code --install-extension ofhumanbondage.react-proptypes-intellisense
+code --install-extension msjsdiag.vscode-react-native
+code --install-extension steoates.autoimport
 #Flutter
 code --install-extension Nash.awesome-flutter-snippets
 code --install-extension Dart-Code.dart-code
@@ -88,6 +105,8 @@ code --install-extension onecentlin.laravel5-snippets
 code --install-extension amirmarmul.laravel-blade-vscode
 code --install-extension onecentlin.laravel-blade
 code --install-extension kokororin.vscode-phpfmt
+code --install-extension amiralizadeh9480.laravel-extra-intellisense
+code --install-extension onecentlin.laravel-extension-pack
 #Icons
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension PKief.material-icon-theme
@@ -100,6 +119,7 @@ code --install-extension fabiospampinato.vscode-monokai-night
 #------------ git ---------------------------
 git config --global user.name "Kevin Martinez"
 git config --global user.email "kkevinmartinez7@gmail.com"
+# git config --global user.email "kevinm@makeitsimple.io"
 git config --global core.editor "nano"
 
 #------------- Docker -----------------------------------
