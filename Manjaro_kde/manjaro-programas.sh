@@ -85,6 +85,10 @@ code --install-extension joshjg.generate-react-component
 code --install-extension ofhumanbondage.react-proptypes-intellisense
 code --install-extension msjsdiag.vscode-react-native
 code --install-extension steoates.autoimport
+#Angular
+code --install-extension johnpapa.angular2
+code --install-extension mikael.angular-beastcode
+code --install-extension angular.ng-template
 #Flutter
 code --install-extension Nash.awesome-flutter-snippets
 code --install-extension Dart-Code.dart-code
@@ -114,6 +118,12 @@ code --install-extension vscode-icons-team.vscode-icons
 code --install-extension PKief.material-icon-theme
 #Theme
 code --install-extension fabiospampinato.vscode-monokai-night
+#Windows
+code --install-extension ms-vscode-remote.remote-ws
+#Git
+code --install-extension waderyan.gitblame
+#Sass
+code --install-extension syler.sass-indented
 
 #python
 #pip install -U black
@@ -268,8 +278,14 @@ composer global require laravel/installer
 sudo pacman -S --noconfirm nodejs npm
 #React
 sudo npm i -g create-react-app
+#Angular
+npm install -g @angular/cli
 #TypeScript
-sudo npm i -g typescript 
+sudo npm i -g typescript
+#Sass
+sudo npm install -g sass
+#eslint
+sudo npm i -g eslint
 
 #------------ Yarn ------------------------------
 sudo pacman -S --noconfirm yarn
