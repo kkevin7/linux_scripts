@@ -62,9 +62,15 @@ code --install-extension Tyriar.lorem-ipsum
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension wakatime.vscode-wakatime
+code --install-extension alefragnani.project-manager
 #Syntaxis
 code --install-extension CoenraadS.bracket-pair-colorizer-2
 code --install-extension naumovs.color-highlight
+code --install-extension mikestead.dotenv
+code --install-extension editorconfig.editorconfig
+#Theme
+code --install-extension equinusocio.vsc-material-theme
+code --install-extension whizkydee.material-palenight-theme
 #HTML
 code --install-extension ecmel.vscode-html-css
 code --install-extension abusaidm.html-snippets
@@ -113,6 +119,8 @@ code --install-extension onecentlin.laravel-blade
 code --install-extension kokororin.vscode-phpfmt
 code --install-extension amiralizadeh9480.laravel-extra-intellisense
 code --install-extension onecentlin.laravel-extension-pack
+#Firebase
+code --install-extension toba.vsfire
 #Icons
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension PKief.material-icon-theme
@@ -124,6 +132,8 @@ code --install-extension ms-vscode-remote.remote-ws
 code --install-extension waderyan.gitblame
 #Sass
 code --install-extension syler.sass-indented
+#Tailwindcss
+code --install-extension bradlc.vscode-tailwindcss
 
 #python
 #pip install -U black
