@@ -40,7 +40,10 @@ npm install -g react-devtools
 
 #Java JRE and JDK
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk8
+brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+
+#Android Studio
+brew install --cask android-studio
 
 
 
