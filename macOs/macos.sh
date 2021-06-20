@@ -8,6 +8,9 @@ export PATH="/usr/local/bin:$PATH"
 
 #Ruby
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install ruby
+echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
 
 #Google chrome
 brew install google-chrome
@@ -31,8 +34,8 @@ brew install sublime-text
 brew install watchman
 
 #Cocoapods
-#sudo gem install cocoapods
-sudo gem install -n /usr/local/bin cocoapods -v 1.8.4
+sudo gem install cocoapods
+#sudo gem install -n /usr/local/bin cocoapods -v 1.8.4
 
 #React Native
 npm install -g react-native-cli
@@ -44,13 +47,3 @@ brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 
 #Android Studio
 brew install --cask android-studio
-
-
-
-
-
-
-
-
-
-
