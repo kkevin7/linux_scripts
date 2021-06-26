@@ -57,6 +57,7 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension SetiawanJodi.myci-extension
 code --install-extension small.php-ci
 code --install-extension wayou.vscode-todo-highlight
+code --install-extension alefragnani.bookmarks
 #Normal
 code --install-extension Tyriar.lorem-ipsum
 code --install-extension formulahendry.auto-close-tag
@@ -81,6 +82,8 @@ code --install-extension ms-vscode.vscode-typescript-next
 code --install-extension sburg.vscode-javascript-booster
 code --install-extension jmsv.javascriptsnippetsstandard
 code --install-extension capaj.vscode-standardjs-snippets
+#npm
+code --install-extension christian-kohler.npm-intellisense
 #React
 code --install-extension burkeholland.simple-react-snippets
 code --install-extension dsznajder.es7-react-js-snippets
@@ -95,6 +98,13 @@ code --install-extension steoates.autoimport
 code --install-extension johnpapa.angular2
 code --install-extension mikael.angular-beastcode
 code --install-extension angular.ng-template
+#Vue
+code --install-extension octref.vetur
+code --install-extension hollowtree.vue-snippets
+code --install-extension sdras.vue-vscode-snippets
+code --install-extension dariofuzinato.vue-peek
+#TypeScript
+code --install-extension kevinmcgowan.typescriptimport
 #Flutter
 code --install-extension Nash.awesome-flutter-snippets
 code --install-extension Dart-Code.dart-code
@@ -139,7 +149,6 @@ code --install-extension bradlc.vscode-tailwindcss
 #pip install -U black
 
 #------------ git ---------------------------
-git config --global user.name "Kevin Martinez"
 git config --global user.email "kkevinmartinez7@gmail.com"
 # git config --global user.email "kevinm@makeitsimple.io"
 git config --global core.editor "nano"
