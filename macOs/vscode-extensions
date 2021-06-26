@@ -1,0 +1,93 @@
+code --install-extension thekalinga.bootstrap4-vscode
+code --install-extension lihui.vs-color-picker
+code --install-extension vincaslt.highlight-matching-tag
+code --install-extension Zignd.html-css-class-completion
+code --install-extension felixfbecker.php-intellisense
+code --install-extension bmewburn.vscode-intelephense-client
+code --install-extension cliffordfajardo.hightlight-selections-vscode
+code --install-extension HookyQR.beautify
+code --install-extension Prisma.vscode-graphql
+code --install-extension kumar-harsh.graphql-for-vscode
+code --install-extension esbenp.prettier-vscode
+code --install-extension CoenraadS.bracket-pair-colorizer
+code --install-extension christian-kohler.path-intellisense
+code --install-extension SetiawanJodi.myci-extension
+code --install-extension small.php-ci
+code --install-extension wayou.vscode-todo-highlight
+#Normal
+code --install-extension Tyriar.lorem-ipsum
+code --install-extension formulahendry.auto-close-tag
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension wakatime.vscode-wakatime
+code --install-extension alefragnani.project-manager
+#Syntaxis
+code --install-extension CoenraadS.bracket-pair-colorizer-2
+code --install-extension naumovs.color-highlight
+code --install-extension mikestead.dotenv
+code --install-extension editorconfig.editorconfig
+#Theme
+code --install-extension equinusocio.vsc-material-theme
+code --install-extension whizkydee.material-palenight-theme
+#HTML
+code --install-extension ecmel.vscode-html-css
+code --install-extension abusaidm.html-snippets
+#Javascript
+code --install-extension xabikos.javascriptsnippets
+code --install-extension mgmcdermott.vscode-language-babel
+code --install-extension ms-vscode.vscode-typescript-next
+code --install-extension sburg.vscode-javascript-booster
+code --install-extension jmsv.javascriptsnippetsstandard
+code --install-extension capaj.vscode-standardjs-snippets
+#React
+code --install-extension burkeholland.simple-react-snippets
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension EQuimper.react-native-react-redux
+code --install-extension xabikos.ReactSnippets
+code --install-extension joshjg.generate-react-component
+#React Native
+code --install-extension ofhumanbondage.react-proptypes-intellisense
+code --install-extension msjsdiag.vscode-react-native
+code --install-extension steoates.autoimport
+#Angular
+code --install-extension johnpapa.angular2
+code --install-extension mikael.angular-beastcode
+code --install-extension angular.ng-template
+#Flutter
+code --install-extension Nash.awesome-flutter-snippets
+code --install-extension Dart-Code.dart-code
+code --install-extension Dart-Code.flutter
+code --install-extension quicktype.quicktype
+code --install-extension formulahendry.terminal
+#Python
+code --install-extension ms-python.python
+code --install-extension tht13.python
+code --install-extension donjayamanne.python-extension-pack
+code --install-extension tushortz.python-extended-snippets
+code --install-extension kevinrose.vsc-python-indent
+code --install-extension almenon.arepl
+code --install-extension dongli.python-preview
+#Laravel 
+code --install-extension ryannaddy.laravel-artisan
+code --install-extension codingyu.laravel-goto-view
+code --install-extension cjhowe7.laravel-blade
+code --install-extension onecentlin.laravel5-snippets
+code --install-extension amirmarmul.laravel-blade-vscode
+code --install-extension onecentlin.laravel-blade
+code --install-extension kokororin.vscode-phpfmt
+code --install-extension amiralizadeh9480.laravel-extra-intellisense
+code --install-extension onecentlin.laravel-extension-pack
+#Firebase
+code --install-extension toba.vsfire
+#Icons
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension PKief.material-icon-theme
+#Theme
+code --install-extension fabiospampinato.vscode-monokai-night
+#Windows
+code --install-extension ms-vscode-remote.remote-ws
+#Git
+code --install-extension waderyan.gitblame
+#Sass
+code --install-extension syler.sass-indented
+#Tailwindcss
+code --install-extension bradlc.vscode-tailwindcss
