@@ -5,7 +5,7 @@ sudo pacman-mirrors --fasttrack
 sudo pacman -Syyu --noconfirm
 
 #--------Packetes de compilacion de sistema---------
-sudo pacman -Syu base-devel
+sudo pacman -Syu --noconfirm base-devel
 #sudo pacman -Syu --noconfirm autoconf automake binutils bison fakeroot file findutils flex gawk  gcc gettext  grep  groff gzip libtool m4 make pacman patch pkg-config sed sudo systemd texinfo  util-linux which
 
 #------- yay ----------------
@@ -32,8 +32,8 @@ sudo pacman -S --noconfirm zsh
 sudo pacman -S --noconfirm gedit
  
 #------- google chrome (fakeroot) ------------------ 
-#yay -S --noconfirm google-chrome
-sudo pacman -S --noconfirm chromium 
+yay -S --noconfirm google-chrome
+#sudo pacman -S --noconfirm chromium 
 
 #------- Sublime Text ---------------
 yay -S --noconfirm sublime-text-dev
