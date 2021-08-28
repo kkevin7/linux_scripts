@@ -288,10 +288,24 @@ sudo pacman -S --noconfirm vlc
 #------------ Gimp ----------------------
 #sudo pacman -S --noconfirm gimp
 
-#------------------ Composer------------------
+
+#------------ Apache & PHP ------------------
+sudo pacman -Sy --noconfirm php-apache php7.4 php-cgi php-fpm php-gd  php-embed php-intl php-imap  php-redis php-snmp
+sudo systemctl enable httpd
+sudo systemctl restart httpd
+
+#Docs
+#https://forum.manjaro.org/t/howto-install-apache-mariadb-mysql-php-lamp/13000
+#https://diarioprogramador.com/como-instalar-el-stack-lamp-en-manjaro-linux/
+#https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-arch-linux
+
+#------------------ Composer ------------------
 sudo pacman -S --noconfirm composer
-#Laravel
+
+#------------------ Laravel ------------------
 composer global require laravel/installer
+echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
+source ~/.bashrc
 
 #------------ NodeJS --------------------
 sudo pacman -S --noconfirm nodejs npm
