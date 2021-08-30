@@ -139,18 +139,23 @@ code --install-extension fabiospampinato.vscode-monokai-night
 #Windows
 code --install-extension ms-vscode-remote.remote-ws
 #Git
+code --install-extension donjayamanne.githistory
 code --install-extension waderyan.gitblame
+code --install-extension codezombiech.gitignore
 #Sass
 code --install-extension syler.sass-indented
 #Tailwindcss
 code --install-extension bradlc.vscode-tailwindcss
+#Docker
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 
 #python
 #pip install -U black
 
 #------------ git ---------------------------
+git config --global user.name "Kevin Martinez"
 git config --global user.email "kkevinmartinez7@gmail.com"
-# git config --global user.email "kevinm@makeitsimple.io"
 git config --global core.editor "nano"
 
 #------------- Docker -----------------------------------
@@ -312,7 +317,7 @@ sudo pacman -S --noconfirm nodejs npm
 #React
 sudo npm i -g create-react-app
 #Angular
-npm install -g @angular/cli
+sudo npm install -g @angular/cli
 #TypeScript
 sudo npm i -g typescript
 #Sass
@@ -325,7 +330,16 @@ sudo pacman -S --noconfirm yarn
 
 
 #----------- Robo 3T for MongoDB -----------------------
-yay -S robo3t-bin --noconfirm
+yay -S --noconfirm robo3t-bin 
+
+
+#----------- Whatsapp Desktop ---------------------
+sudo pacman -S --noconfirm whatsapp-for-linux
+
+
+#----------- Filezilla --------------------------
+sudo pacman -S --noconfirm filezilla
+
 
 #----------- Virtualbox -----------------------------
 sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso 
