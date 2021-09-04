@@ -107,6 +107,10 @@ sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
 #export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
 #echo 'export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin' >> /home/${USER}/.bashrc
 
+#-------------------- NVidia -----------------------------------
+sudo apt-get install -y linux-headers-$(uname -r) build-essential libglvnd-dev pkg-config
+sudo apt-get install -y nvidia-detect
+sudo apt-get install -y nvidia-driver
 
 #--------------------- Tweets Configs --------------------------
 sudo apt-get install -y gnome-shell-extension-dashtodock 
@@ -118,3 +122,7 @@ sudo apt-get install -y gnome-shell-extension-dashtodock
 #git checkout ewlsh/gnome-40
 #make
 #make install
+
+#------------ Suspencion -----------------
+#sudo apt-get install molly-guard
+#sudo apt-get install pm-utils
