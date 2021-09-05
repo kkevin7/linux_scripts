@@ -11,13 +11,20 @@ Asignamos los permisos adecuados en la estructura que se ha creado:
 Creamos un virtual host adecuado en el directorio /etc/apache2/sites-availables. En mi caso le he puesto laravel.conf y el contenido creado es este:
 
 <VirtualHost *:80>
-    DocumentRoot /var/www/html/prueba/public
-    DirectoryIndex index.php
-    <Directory /var/www/html/prueba>
+    
+    DocumentRoot /var/www/html/exmaple/public
+    ServerName example.test
+
+    <Directory /var/www/html/example/public>
+        Options Indexes FollowSymLinks MultiViews
         AllowOverride All
+        Order allow,deny
+        allow from all
     </Directory>
+
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
+
 </VirtualHost>
 
 Por último, deshabilitamos el virtual host que apache crea por defecto, habilitamos el nuestro, habilitamos el modulo rewrite de apache y reiniciamos el servidor web:

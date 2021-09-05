@@ -107,17 +107,20 @@ sudo apt-get install -y yarn
 sudo apt-get install -y apache2
 sudo chgrp -R www-data /var/www/html
 sudo chmod -R 777 /var/www/html
+sudo a2dissite 000-default.conf
+sudo systemctl restart apache2
 
 #--------------------------- PHP --------------------------------
 sudo apt-get install -y curl unzip 
 sudo apt-get install -y libapache2-mod-php php php-cli php-common php-gd php-mysql php-pgsql \
 php-curl php-intl php-mbstring php-bcmath php-imap php-xml php-zip php-bz2 php-json \
 php-tokenizer php-bcmath php-cgi php-pspell php-readline php-dba php-dev libmcrypt-dev php-pear
-#nano /etc/php/7.4/apache2/php.ini
-#nano /etc/apache2/apache2.conf
+#sudo nano /etc/php/7.4/apache2/php.ini
+#sudo nano /etc/apache2/apache2.conf
 #cd /var/www/html
 #chgrp -R www-data /var/www/html/your-project
 #chmod -R 775 storage/ bootstrap/cache/
+#sudo nano /etc/hosts
 
 #--------------------------- PHP Debuger --------------------------------
 sudo apt-get install php-xdebug
