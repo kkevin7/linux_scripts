@@ -3,6 +3,11 @@
 sudo apt-get update
 sudo apt-get install -y software-properties-common apt-transport-https ca-certificates curl gnupg lsb-release
 
+#-------------------- Sudo ---------------------------
+apt-get install -y sudo
+#sudo adduser $USER sudo
+sudo usermod -a -G sudo $USER
+
 #-------------------- Build Commands ------------------
 sudo apt-get install -y build-essential gettext sassc
 
@@ -17,26 +22,26 @@ sudo apt-get install -y zsh
 
 #-------------------- Google Chrome-------------------- 
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 sudo apt-get update
 sudo apt-get install -y google-chrome-stable
 
 #--------------------- Sublime Text -------------------
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 sudo apt-get install apt-transport-https
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update
 sudo apt-get install -y sublime-text
 
 #--------------------- Visual Studio Code -------------------
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/visual-studio-code.list
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/visual-studio-code.list
 sudo apt-get update
 sudo apt-get install -y code
 
 #--------------------- Docker -------------------------
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+sudo echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
@@ -70,6 +75,9 @@ sudo apt-get install -y unrar
 #----------- htop (ver procesos) ---------------------
 sudo apt-get install -y htop
 
+#----------- Screenshot ---------------------
+sudo apt-get install -y flameshot
+
 #------------ comando (tree) ----------------------------
 sudo apt-get install -y tree
 
@@ -94,6 +102,44 @@ sudo npm i -g eslint
 
 #--------------------------- Yarn ------------------------------
 sudo apt-get install -y yarn
+
+#--------------------------- Apache -----------------------------
+sudo apt-get install -y apache2
+sudo chgrp -R www-data /var/www/html
+sudo chmod -R 777 /var/www/html
+
+#--------------------------- PHP --------------------------------
+sudo apt-get install -y curl unzip 
+sudo apt-get install -y libapache2-mod-php php php-cli php-common php-gd php-mysql php-pgsql \
+php-curl php-intl php-mbstring php-bcmath php-imap php-xml php-zip php-bz2 php-json \
+php-tokenizer php-bcmath php-cgi php-pspell php-readline php-dba php-dev libmcrypt-dev php-pear
+#nano /etc/php/7.4/apache2/php.ini
+#nano /etc/apache2/apache2.conf
+#cd /var/www/html
+#chgrp -R www-data /var/www/html/your-project
+#chmod -R 775 storage/ bootstrap/cache/
+
+#--------------------------- PHP Debuger --------------------------------
+sudo apt-get install php-xdebug
+sudo echo "zend_extension=xdebug.so
+xdebug.remote_autostart = 1
+xdebug.remote_enable = 1
+xdebug.remote_handler = dbgp
+xdebug.remote_host = 127.0.0.1
+xdebug.remote_log = /tmp/xdebug_remote.log
+xdebug.remote_mode = req
+xdebug.remote_port = 9003
+" | sudo tee /etc/php/7.4/mods-available/xdebug.ini 
+sudo systemctl restart apache2
+
+#--------------------------- PHP Composer --------------------------------
+wget -qO - https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/ --filename=composer
+
+#--------------------------- Laravel -------------------------------------
+composer global require laravel/installer
+export PATH=~/.config/composer/vendor/bin:$PATH
+echo 'export PATH=~/.config/composer/vendor/bin:$PATH' >> /home/${USER}/.bashrc
+source ~/.bashrc
 
 #---------------------- Wireshark ----------------------------------
 sudo apt-get install -y wireshark
