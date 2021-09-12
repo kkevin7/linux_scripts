@@ -84,6 +84,9 @@ sudo apt-get install -y tree
 #---------------- Maven ---------------------------------
 sudo apt-get install -y maven
 
+#---------------- Filezilla -----------------------------
+sudo apt-get install -y filezilla
+
 #------------ NodeJS --------------------
 cd /tmp
 curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
@@ -130,7 +133,8 @@ xdebug.remote_enable = 1
 xdebug.remote_handler = dbgp
 xdebug.remote_host = 127.0.0.1
 xdebug.remote_log = /tmp/xdebug_remote.log
-xdebug.remote_mode = req
+xdebug.mode = debug
+xdebug.start_with_request = yes
 xdebug.remote_port = 9003
 " | sudo tee /etc/php/7.4/mods-available/xdebug.ini 
 sudo systemctl restart apache2
@@ -164,6 +168,28 @@ sudo apt-get install -y nvidia-driver
 #--------------------- Tweets Configs --------------------------
 sudo apt-get install -y gnome-shell-extension-dashtodock 
 
+#--------------------- Snap -----------------------------------
+sudo apt-get install -y snapd
+sudo snap install core
+
+#--------------------- Postman ------------------------
+sudo snap install postman
+
+#--------------------- Mysql Workbeanch ------------------------
+sudo snap install mysql-workbench-community
+
+#--------------------- Jdownloader ------------------------
+sudo snap install jdownloader2
+
+#--------------------- Datagrid ---------------------------
+sudo snap install datagrip --classic
+
+#--------------------- Datagrid ---------------------------
+sudo snap install slack --classic
+
+#--------------------- Whastapp Desktop ------------------------
+sudo snap install whatsdesk
+
 #--------------------- Dash to dock ------------------
 #cd /tmp
 #git clone https://github.com/ewlsh/dash-to-dock/
@@ -172,6 +198,15 @@ sudo apt-get install -y gnome-shell-extension-dashtodock
 #make
 #make install
 
-#------------ Suspencion -----------------
-#sudo apt-get install molly-guard
-#sudo apt-get install pm-utils
+#--------------------- Papirus Icons --------------------------
+sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
+sudo apt-get install dirmngr
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+sudo apt-get update
+sudo apt-get install papirus-icon-theme
+
+#--------------------- Theme ---------------------------
+cd /tmp
+git clone https://github.com/vinceliuice/Fluent-gtk-theme.git
+cd Fluent-gtk-theme/
+./install.sh -t default
