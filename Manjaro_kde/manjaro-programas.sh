@@ -201,7 +201,6 @@ sudo groupadd flutterusers
 sudo gpasswd -a $USER flutterusers
 sudo chown -R :flutterusers /opt/flutter
 sudo chmod -R g+w /opt/flutter
-newgrp flutterusers
 #flutter doctor --android-licenses
 
 #---------- Web Storm -----------------------------
@@ -293,7 +292,6 @@ sudo pacman -S --noconfirm vlc
 #------------ Gimp ----------------------
 #sudo pacman -S --noconfirm gimp
 
-
 #------------ Apache & PHP ------------------
 sudo pacman -Sy --noconfirm php-apache php7.4 php-cgi php-fpm php-gd  php-embed php-intl php-imap  php-redis php-snmp
 sudo systemctl enable httpd
@@ -328,36 +326,44 @@ sudo npm i -g eslint
 #------------ Yarn ------------------------------
 sudo pacman -S --noconfirm yarn
 
+#----------- Flameshot -----------------------
+sudo pacman -S --noconfirm flameshot
 
 #----------- Robo 3T for MongoDB -----------------------
 yay -S --noconfirm robo3t-bin 
 
+#----------- Slack desktop -----------------------
+yay -S --noconfirm slack-desktop
 
 #----------- Whatsapp Desktop ---------------------
 sudo pacman -S --noconfirm whatsapp-for-linux
 
-
 #----------- Filezilla --------------------------
 sudo pacman -S --noconfirm filezilla
 
+#----------- Redis -----------------------------
+yay -S --noconfirm redis
+sudo systemctl enable redis
+sudo systemctl start redis
+
 
 #----------- Virtualbox -----------------------------
-sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso 
-sudo pacman -S --noconfirm $(pacman -Qsq "^linux" | grep "^linux[0-9]*[-rt]*$" | awk '{print $1"-virtualbox-host-modules"}' ORS=' ') 
-#sudo pacman -S --noconfirm linux419-virtualbox-host-modules
-sudo gpasswd -a $USER vboxusers
-sudo modprobe vboxdrv
-sudo vboxmanage hostonlyif create
+# sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso 
+# sudo pacman -S --noconfirm $(pacman -Qsq "^linux" | grep "^linux[0-9]*[-rt]*$" | awk '{print $1"-virtualbox-host-modules"}' ORS=' ') 
+# #sudo pacman -S --noconfirm linux419-virtualbox-host-modules
+# sudo gpasswd -a $USER vboxusers
+# sudo modprobe vboxdrv
+# sudo vboxmanage hostonlyif create
 
 #------------ Virt-manager (KVM) ---------------
-sudo pacman -S --noconfirm inxi dmidecode gparted && sudo inxi -Fxm
-sudo pacman -S --noconfirm virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
-sudo systemctl enable libvirtd.service
-sudo systemctl start libvirtd.service
-sudo usermod -a -G kvm $(id -un)
-sudo usermod -a -G libvirt $(id -un)
-sudo virsh net-autostart default
-sudo virsh net-start default
+# sudo pacman -S --noconfirm inxi dmidecode gparted && sudo inxi -Fxm
+# sudo pacman -S --noconfirm virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
+# sudo systemctl enable libvirtd.service
+# sudo systemctl start libvirtd.service
+# sudo usermod -a -G kvm $(id -un)
+# sudo usermod -a -G libvirt $(id -un)
+# sudo virsh net-autostart default
+# sudo virsh net-start default
 
 
 
@@ -373,19 +379,7 @@ sudo virsh net-start default
 #------------TEMAS MANJARO------------------------
 
 
-################  ICONOS #############################
-
-#----------- Papirus -----------------------------
-#yay -Sy --noconfirm papirus-icon-theme-git
-
-
 #################### OTROS #########################
-
-#----------- XAMPP PHP ----------------------
-#yay -S --noconfirm xampp
-
-#--------- Brackets (fakeroot)------------------ 
-#yay -S --noconfirm brackets
 
 #------------------ Lectores PDF (foxit fakeroot)--------------------------
 #yay -S --noconfirm foxitreader
