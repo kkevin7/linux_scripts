@@ -1,0 +1,16 @@
+<VirtualHost *:80>
+    
+    DocumentRoot /srv/http/exmaple/public
+    ServerName example.test
+
+    <Directory /srv/http/example/public>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+    ErrorLog "/var/log/httpd/dummy-host.example.com-error_log"
+    CustomLog "/var/log/httpd/dummy-host.example.com-access_log" common
+
+</VirtualHost>

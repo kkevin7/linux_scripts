@@ -36,7 +36,7 @@ yay -S --noconfirm google-chrome
 #sudo pacman -S --noconfirm chromium 
 
 #------- Sublime Text ---------------
-yay -S --noconfirm sublime-text-dev
+yay -S --noconfirm sublime-text-4
 
 #------- Visual Studio Code -------------
 yay -S --noconfirm visual-studio-code-bin
@@ -213,11 +213,6 @@ sudo chmod -R g+w /opt/flutter
 #---------- Intellij IDE Comunity -----------------
 #sudo pacman -S --noconfirm intellij-idea-community-edition
 
-#------------------- QT Creator ----------------------
-#sudo pacman -S --noconfirm qtcreator
-#libs
-#yay -S --noconfirm qt5-websockets
-
 #----------------- WPS Office ----------------------------
 #yay -S --noconfirm wps-office
 #yay -S --noconfirm wps-office-extension-spanish-dictionary
@@ -293,9 +288,25 @@ sudo pacman -S --noconfirm vlc
 #sudo pacman -S --noconfirm gimp
 
 #------------ Apache & PHP ------------------
-sudo pacman -Sy --noconfirm php-apache php7.4 php-cgi php-fpm php-gd  php-embed php-intl php-imap  php-redis php-snmp
+sudo pacman -S --noconfirm php-apache php7 php-cgi php-fpm php-gd  php-embed php-intl php-imap  php-redis php-snmp
 sudo systemctl enable httpd
 sudo systemctl restart httpd
+
+#Modules
+#sudo nano /etc/httpd/conf/httpd.conf
+
+#------------------ Uncomment -----------------------
+# LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+# LoadModule rewrite_module modules/mod_rewrite.so
+
+#------------------ Comment --------------------------
+# LoadModule mpm_event_module modules/mod_mpm_event.so
+# LoadModule unique_id_module modules/mod_unique_id.so
+
+# --------- Add the following lines at the bottom for php8: -----
+# LoadModule php_module modules/libphp.so
+# AddHandler php-script php
+# Include conf/extra/php_module.conf
 
 #Docs
 #https://forum.manjaro.org/t/howto-install-apache-mariadb-mysql-php-lamp/13000
