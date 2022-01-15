@@ -52,20 +52,21 @@ code --install-extension HookyQR.beautify
 code --install-extension Prisma.vscode-graphql
 code --install-extension kumar-harsh.graphql-for-vscode
 code --install-extension esbenp.prettier-vscode
-code --install-extension CoenraadS.bracket-pair-colorizer
 code --install-extension christian-kohler.path-intellisense
 code --install-extension SetiawanJodi.myci-extension
 code --install-extension small.php-ci
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension alefragnani.bookmarks
+code --install-extension ritwickdey.liveserver
 #Normal
 code --install-extension Tyriar.lorem-ipsum
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension wakatime.vscode-wakatime
 code --install-extension alefragnani.project-manager
+code --install-extension bierner.emojisense
 #Syntaxis
-code --install-extension CoenraadS.bracket-pair-colorizer-2
+code --install-extension CoenraadS.bracket-pair-colorizer
 code --install-extension naumovs.color-highlight
 code --install-extension mikestead.dotenv
 code --install-extension editorconfig.editorconfig
@@ -99,10 +100,12 @@ code --install-extension johnpapa.angular2
 code --install-extension mikael.angular-beastcode
 code --install-extension angular.ng-template
 #Vue
+code --install-extension jcbuisson.vue
 code --install-extension octref.vetur
 code --install-extension hollowtree.vue-snippets
 code --install-extension sdras.vue-vscode-snippets
 code --install-extension dariofuzinato.vue-peek
+code --install-extension vuetifyjs.vuetify-vscode
 #TypeScript
 code --install-extension kevinmcgowan.typescriptimport
 #Flutter
@@ -149,6 +152,12 @@ code --install-extension bradlc.vscode-tailwindcss
 #Docker
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+#XML
+code --install-extension dotjoshjohnson.xml
+code --install-extension redhat.vscode-xml
+#NodeJS
+code --install-extension module-intellisense
+code --install-extension abdoseadaa.node-js-snippet
 
 #python
 #pip install -U black
@@ -267,6 +276,7 @@ sudo pacman -S --noconfirm htop
 
 #---------- MySql Workbeach ---------------------
 sudo pacman -S --noconfirm mysql-workbench
+yay -S gnome-keyring
 
 #----------- Pgadmin Postgres-----------------------------
 #sudo pacman -S --noconfirm pgadmin3
@@ -288,7 +298,8 @@ sudo pacman -S --noconfirm vlc
 #sudo pacman -S --noconfirm gimp
 
 #------------ Apache & PHP ------------------
-sudo pacman -S --noconfirm php-apache php7 php-cgi php-fpm php-gd  php-embed php-intl php-imap  php-redis php-snmp
+sudo pacman -S --noconfirm php-apache php7 php-cgi php-fpm php-gd php-embed php-intl php-imap php-redis php-snmp php-pgsql
+yay -S --noconfirm php-pdo_sqlsrv
 sudo systemctl enable httpd
 sudo systemctl restart httpd
 
@@ -298,6 +309,8 @@ sudo systemctl restart httpd
 #------------------ Uncomment -----------------------
 # LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 # LoadModule rewrite_module modules/mod_rewrite.so
+# LoadModule ssl_module modules/mod_ssl.so
+# LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
 
 #------------------ Comment --------------------------
 # LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -307,6 +320,17 @@ sudo systemctl restart httpd
 # LoadModule php_module modules/libphp.so
 # AddHandler php-script php
 # Include conf/extra/php_module.conf
+
+#pho.ini
+# sudo nano /etc/php/php.ini
+
+# extension=bz2
+# extension=gd
+# extension=iconv
+# extension=mysqli
+# extension=pdo_mysql
+# extension=pdo_pgsql
+# extension=pgsql
 
 #Docs
 #https://forum.manjaro.org/t/howto-install-apache-mariadb-mysql-php-lamp/13000
@@ -320,6 +344,9 @@ sudo pacman -S --noconfirm composer
 composer global require laravel/installer
 echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
 source ~/.bashrc
+source ~/.zshrc
+# echo "PATH=\"$HOME/.config/composer/vendor/bin:$PATH\"" >> ~/.zshrc
+# source ~/.zshrc
 
 #------------ NodeJS --------------------
 sudo pacman -S --noconfirm nodejs npm
@@ -352,19 +379,29 @@ sudo pacman -S --noconfirm whatsapp-for-linux
 #----------- Filezilla --------------------------
 sudo pacman -S --noconfirm filezilla
 
+#----------- Jetbrains DataGrid --------------------------
+yay -S --noconfirm datagrip
+
 #----------- Redis -----------------------------
 yay -S --noconfirm redis
 sudo systemctl enable redis
 sudo systemctl start redis
 
+#----------- Supervisor -----------------------------
+sudo pacman -S --noconfirm supervisor
+
+#----------- Peek ---------------------------------
+sudo pacman -S peek --noconfirm 
+
+#----------- droidcam -----------------------------
+sudo pacman -S --noconfirm "linux$(uname -r | awk -F. '{print $1$2}')-headers"
+yay -S --noconfirm droidcam 
 
 #----------- Virtualbox -----------------------------
-# sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso 
-# sudo pacman -S --noconfirm $(pacman -Qsq "^linux" | grep "^linux[0-9]*[-rt]*$" | awk '{print $1"-virtualbox-host-modules"}' ORS=' ') 
-# #sudo pacman -S --noconfirm linux419-virtualbox-host-modules
-# sudo gpasswd -a $USER vboxusers
-# sudo modprobe vboxdrv
-# sudo vboxmanage hostonlyif create
+sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso $(pacman -Qsq "^linux" | grep "^linux[0-9]*[-rt]*$" | awk '{print $1"-virtualbox-host-modules"}' ORS=' ') 
+yay -S --noconfirm virtualbox-ext-oracle
+sudo gpasswd -a $USER vboxusers
+sudo modprobe vboxdrv
 
 #------------ Virt-manager (KVM) ---------------
 # sudo pacman -S --noconfirm inxi dmidecode gparted && sudo inxi -Fxm
@@ -375,9 +412,6 @@ sudo systemctl start redis
 # sudo usermod -a -G libvirt $(id -un)
 # sudo virsh net-autostart default
 # sudo virsh net-start default
-
-
-
 
 #------------- Imagenes Docker -----------------------------}
 #docker pull mariadb:latest 

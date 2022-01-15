@@ -1,4 +1,4 @@
-
+  
 #-------------------- Update OS  --------------------
 sudo apt-get update
 sudo apt-get install -y software-properties-common apt-transport-https ca-certificates curl gnupg lsb-release
@@ -111,6 +111,7 @@ sudo apt-get install -y apache2
 sudo chgrp -R www-data /var/www/html
 sudo chmod -R 777 /var/www/html
 sudo a2dissite 000-default.conf
+sudo a2enmod rewrite
 sudo systemctl restart apache2
 
 #--------------------------- PHP --------------------------------
