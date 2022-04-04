@@ -58,6 +58,13 @@ code --install-extension small.php-ci
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension alefragnani.bookmarks
 code --install-extension ritwickdey.liveserver
+code --install-extension whosydd.stylelint-config
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-ssh-edit
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension ms-vscode-remote.remote-wsl
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension github.vscode-pull-request-github
 #Normal
 code --install-extension Tyriar.lorem-ipsum
 code --install-extension formulahendry.auto-close-tag
@@ -73,6 +80,8 @@ code --install-extension editorconfig.editorconfig
 #Theme
 code --install-extension equinusocio.vsc-material-theme
 code --install-extension whizkydee.material-palenight-theme
+#GIT
+code --install-extension eamodio.gitlens
 #HTML
 code --install-extension ecmel.vscode-html-css
 code --install-extension abusaidm.html-snippets
@@ -95,6 +104,7 @@ code --install-extension joshjg.generate-react-component
 code --install-extension ofhumanbondage.react-proptypes-intellisense
 code --install-extension msjsdiag.vscode-react-native
 code --install-extension steoates.autoimport
+code --install-extension arunagiritm.material-ui
 #Angular
 code --install-extension johnpapa.angular2
 code --install-extension mikael.angular-beastcode
@@ -298,7 +308,8 @@ sudo pacman -S --noconfirm vlc
 #sudo pacman -S --noconfirm gimp
 
 #------------ Apache & PHP ------------------
-sudo pacman -S --noconfirm php-apache php7 php-cgi php-fpm php-gd php-embed php-intl php-imap php-redis php-snmp php-pgsql
+sudo pacman -S --noconfirm php7 php7-apache php7-cgi php7-mongodb php7-fpm php7-embed php7-intl php7-imap php7-gd php7-redis php7-snmp php7-memcache php7-sqlite php7-pgsql php7-odbc
+sudo pacman -S --noconfirm php php-apache php-cgi php-fpm php-gd php-embed php-intl php-imap php-redis php-snmp php-pgsql php-odbc
 yay -S --noconfirm php-pdo_sqlsrv
 sudo systemctl enable httpd
 sudo systemctl restart httpd
@@ -402,6 +413,14 @@ sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso $(pacman -Qsq "^linux
 yay -S --noconfirm virtualbox-ext-oracle
 sudo gpasswd -a $USER vboxusers
 sudo modprobe vboxdrv
+
+#----------- Wireshark -------------------------------
+sudo pacman -S --noconfirm wireshark-qt
+sudo usermod -a -G wireshark $USER
+sudo chmod +x /usr/bin/dumpcap
+
+#----------- Apache BenchMark ------------------------
+yay -S --noconfirm  httperf-git
 
 #------------ Virt-manager (KVM) ---------------
 # sudo pacman -S --noconfirm inxi dmidecode gparted && sudo inxi -Fxm

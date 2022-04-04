@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+    
+    DocumentRoot /var/www/html/exmaple/public
+    ServerName example.test
+    ServerAlias www.example.test
+
+    <Directory "/opt/bitnami/apache2/htdocs/97tools/public/">
+        Options -Indexes
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+</VirtualHost>
+

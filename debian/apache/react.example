@@ -12,18 +12,28 @@ Creamos un virtual host adecuado en el directorio /etc/apache2/sites-availables.
 
 <VirtualHost *:80>
     
-    DocumentRoot /var/www/html/exmaple/public
+    DocumentRoot /var/www/html/exmaple/build
     ServerName example.test
+    ServerAlias www.example.test
 
-    <Directory /var/www/html/example/public>
-        Options Indexes FollowSymLinks MultiViews
+    <Directory /var/www/html/example/build>
+        DirectoryIndex index.html
         AllowOverride All
-        Order allow,deny
-        allow from all
+        Options FollowSymlinks
+        Require all granted
+        
+        RewriteEngine On
+        RewriteBase /
+        RewriteRule ^index\.html$ - [L]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteCond %{REQUEST_FILENAME} !-l
+        RewriteRule . /index.html [L]
+
     </Directory>
 
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    #ErrorLog ${APACHE_LOG_DIR}/error.log
+    #CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
 
