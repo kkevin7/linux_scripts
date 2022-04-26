@@ -30,9 +30,9 @@ Creamos un virtual host adecuado en el directorio /etc/apache2/sites-availables.
 
 Por último, deshabilitamos el virtual host que apache crea por defecto, habilitamos el nuestro, habilitamos el modulo rewrite de apache y reiniciamos el servidor web:
 
-# a2dissite 000-default.conf
-# a2ensite laravel.conf
-# a2enmod rewrite
-# systemctl restart apache2
+# sudo a2dissite 000-default.conf
+# sudo a2ensite laravel.conf
+# sudo a2enmod rewrite
+# sudo systemctl restart apache2
 
 Si ahora apuntamos con un navegador a la ip de nuestra máquina debian veremos la página de inicio de Laravel:

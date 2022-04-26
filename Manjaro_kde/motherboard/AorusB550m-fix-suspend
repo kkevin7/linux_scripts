@@ -1,0 +1,21 @@
+# Run this command:
+/bin/bash -c "echo GPP0 >> /proc/acpi/wakeup"
+
+# Create this service:
+sudo nano /etc/systemd/system/wakeup-disable_GPP0.service
+
+#-----------------------------------------------------------
+[Unit]
+Description=Fix suspend by disabling GPP0 sleepstate thingie
+
+[Service]
+ExecStart=/bin/bash -c "echo GPP0 >> /proc/acpi/wakeup"
+
+[Install]
+WantedBy=multi-user.target
+#-----------------------------------------------------------
+
+# Restart Services
+sudo systemctl enable wakeup-disable_GPP0.service
+sudo systemctl start wakeup-disable_GPP0.service
+sudo systemctl daemon-reload

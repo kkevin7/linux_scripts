@@ -309,7 +309,7 @@ sudo pacman -S --noconfirm vlc
 
 #------------ Apache & PHP ------------------
 sudo pacman -S --noconfirm php7 php7-apache php7-cgi php7-mongodb php7-fpm php7-embed php7-intl php7-imap php7-gd php7-redis php7-snmp php7-memcache php7-sqlite php7-pgsql php7-odbc
-sudo pacman -S --noconfirm php php-apache php-cgi php-fpm php-gd php-embed php-intl php-imap php-redis php-snmp php-pgsql php-odbc
+sudo pacman -S --noconfirm php php-apache php-cgi php-fpm php-gd php-embed php-intl php-imap php-redis php-snmp php-pgsql php-odbc php-sodium
 yay -S --noconfirm php-pdo_sqlsrv
 sudo systemctl enable httpd
 sudo systemctl restart httpd
@@ -361,10 +361,18 @@ source ~/.zshrc
 
 #------------ NodeJS --------------------
 sudo pacman -S --noconfirm nodejs npm
-#React
+cat /proc/sys/fs/inotify/max_user_watches
+sudo sysctl fs.inotify.max_user_watches=65535
+sudo sysctl -p
+# echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+
+#React JS
 sudo npm i -g create-react-app
-#Angular
+#Angular JS
 sudo npm install -g @angular/cli
+#Vue JS
+sudo npm install -g @vue/cli
+sudo npm install -g create-nuxt-app
 #TypeScript
 sudo npm i -g typescript
 #Sass
