@@ -157,7 +157,7 @@ sudo pacman -S --noconfirm htop
 
 #---------- MySql Workbeach ---------------------
 sudo pacman -S --noconfirm mysql-workbench
-yay -S gnome-keyring
+yay -S --noconfirm gnome-keyring
 
 #----------- Pgadmin Postgres-----------------------------
 #sudo pacman -S --noconfirm pgadmin3
@@ -225,10 +225,9 @@ sudo pacman -S --noconfirm composer
 #------------------ Laravel ------------------
 composer global require laravel/installer
 echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
-source ~/.bashrc
-source ~/.zshrc
-# echo "PATH=\"$HOME/.config/composer/vendor/bin:$PATH\"" >> ~/.zshrc
-# source ~/.zshrc
+echo "PATH=\"$HOME/.config/composer/vendor/bin:$PATH\"" >> ~/.zshrc
+#source ~/.bashrc
+#source ~/.zshrc
 
 #------------ NodeJS --------------------
 sudo pacman -S --noconfirm nodejs npm
@@ -295,11 +294,6 @@ sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso $(pacman -Qsq "^linux
 yay -S --noconfirm virtualbox-ext-oracle
 sudo gpasswd -a $USER vboxusers
 sudo modprobe vboxdrv
-
-#----------- Wireshark -------------------------------
-sudo pacman -S --noconfirm wireshark-qt
-sudo usermod -a -G wireshark $USER
-sudo chmod +x /usr/bin/dumpcap
 
 #----------- Apache BenchMark ------------------------
 yay -S --noconfirm  httperf-git
