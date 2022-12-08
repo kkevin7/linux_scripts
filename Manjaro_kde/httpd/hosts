@@ -1,0 +1,44 @@
+# Standard host addresses
+127.0.0.1  localhost
+::1        localhost ip6-localhost ip6-loopback
+ff02::1    ip6-allnodes
+ff02::2    ip6-allrouters
+# This host address
+127.0.1.1  Thunderjaw
+127.0.0.1  97tools.test
+127.0.0.1  hyperbaric.test
+127.0.0.1  charitylabs.test
+127.0.0.1  api.charitylabs.test
+127.0.0.1  charitylabs-combine.test
+127.0.0.1  sfgonboarding.test
+127.0.0.1  projecttest.test
+127.0.0.1  ajcptinvestments.test
+127.0.0.1  palomar.test
+127.0.0.1  api.basetools.test
+127.0.0.1  visit-seattle.test
+127.0.0.1  api.visit-seattle.test
+127.0.0.1  afcanyonrun.test
+127.0.0.1  webdb.test
+127.0.0.1  cristian-test.test
+127.0.0.1  api.palomarv2.test
+127.0.0.1  palomarv2.test
+127.0.0.1  pine.test
+127.0.0.1  pinehurst.test
+127.0.0.1  visitseattlereport.test
+127.0.0.1  usersearchtool.test
+127.0.0.1  eremit.test
+127.0.0.1  sheetemails.test
+127.0.0.1  api.recoups.org.test
+127.0.0.1  app.recoups.org.test
+127.0.0.1  spaceplus.test
+127.0.0.1  marketersurveys.test
+127.0.0.1  marketersurveys-sage.test
+127.0.0.1  challengetask.test
+127.0.0.1  hq.test
+127.0.0.1  acument.test
+127.0.0.1  97students.test
+127.0.0.1  97students.local
+127.0.0.1  basesearchmarketing.test
+127.0.0.1  altro.test
+127.0.0.1  next-swiper.test
+127.0.0.1  makeitsimple.test

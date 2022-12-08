@@ -1,8 +1,8 @@
 # Run this command:
-/bin/bash -c "echo GPP0 >> /proc/acpi/wakeup"
+sudo /bin/bash -c "echo GPP0 >> /proc/acpi/wakeup"
 
 # Create this service:
-sudo nano /etc/systemd/system/wakeup-disable_GPP0.service
+sudo nano /etc/systemd/system/disable-GPP0-wakeup.service
 
 #-----------------------------------------------------------
 [Unit]
@@ -16,6 +16,6 @@ WantedBy=multi-user.target
 #-----------------------------------------------------------
 
 # Restart Services
-sudo systemctl enable wakeup-disable_GPP0.service
-sudo systemctl start wakeup-disable_GPP0.service
+sudo systemctl enable disable-GPP0-wakeup.service
+sudo systemctl start disable-GPP0-wakeup.service
 sudo systemctl daemon-reload

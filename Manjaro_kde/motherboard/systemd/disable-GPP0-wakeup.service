@@ -1,0 +1,8 @@
+[Unit]
+Description=Work around for Gigabyte B550 F13 bios sleep/wakeup bug
+
+[Service]
+ExecStart=/bin/bash -c "echo GPP0 >> /proc/acpi/wakeup"
+
+[Install]
+WantedBy=multi-user.target

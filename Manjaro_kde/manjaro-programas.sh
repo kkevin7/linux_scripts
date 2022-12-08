@@ -17,23 +17,19 @@ sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 
 #--------Actualizar yay----------
-#yay -Syyu --noconfirm --devel --aur
 yay -Syua --noconfirm
 
 #-------- Terminal zsh --------------
 sudo pacman -S --noconfirm zsh
-
-#-------- Kernel 4.14 Linux ---------
-#sudo mhwd-kernel -i linux414
-#sudo update-grub
-#sudo pacman -R --noconfirm linux414 linux414-headers linux414-extramodules
 
 #------ gedit editor text---------------
 sudo pacman -S --noconfirm gedit
  
 #------- google chrome (fakeroot) ------------------ 
 yay -S --noconfirm google-chrome
-#sudo pacman -S --noconfirm chromium 
+
+#------- Firefox Developer ------------------ 
+sudo pacman -S --noconfirm firefox-developer-edition
 
 #------- Sublime Text ---------------
 yay -S --noconfirm sublime-text-4
@@ -43,6 +39,9 @@ yay -S --noconfirm visual-studio-code-bin
 #------- extensions -------------
 sh vscode-extensions.sh
 
+#---------- Postman ----------------
+yay -S --noconfirm postman-bin
+
 #------------ git ---------------------------
 git config --global user.name "Kevin Martinez"
 git config --global user.email "kkevinmartinez7@gmail.com"
@@ -51,7 +50,6 @@ git config --global core.editor "nano"
 #------------- Docker -----------------------------------
 sudo pacman -S --noconfirm docker
 sudo systemctl start docker
-#sudo systemctl status docker
 sudo systemctl enable docker
 sudo usermod -a -G docker $(id -un)
 
@@ -77,8 +75,8 @@ sudo wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql
 sudo chown -R $USER /opt/payara5/
 
 #---------- Eclipse IDE ---------------------
-#sudo pacman -S --noconfirm eclipse-java
-#sudo pacman -S --noconfirm eclipse-jee
+sudo pacman -S --noconfirm eclipse-java
+sudo pacman -S --noconfirm eclipse-jee
 
 #------------------ Android Studio -----------------------
 yay -S --noconfirm android-studio
@@ -108,6 +106,9 @@ sudo chmod -R g+w /opt/flutter
 #yay -S --noconfirm wps-office-extension-spanish-dictionary
 #yay -S wps-office-mui-es-mx --noconfirm
 
+#----------- Reproductor vlc ----------------------
+sudo pacman -S --noconfirm vlc
+
 #------------------ Libre Office -------------------------
 sudo pacman -S --noconfirm libreoffice-fresh-es
 sudo pacman -S --noconfirm hunspell-es_sv hyphen-es mythes-es
@@ -116,7 +117,7 @@ sudo pacman -S --noconfirm hunspell-es_sv hyphen-es mythes-es
 sudo pacman -S --noconfirm ms-office-online
 
 #------------------- Etcher (Boot USB) ---------------------
-#sudo pacman -S --noconfirm etcher
+sudo pacman -S --noconfirm etcher
 
 #------------------- GParted ------------------------------
 sudo pacman -S --noconfirm gparted
@@ -159,9 +160,8 @@ sudo pacman -S --noconfirm htop
 sudo pacman -S --noconfirm mysql-workbench
 yay -S --noconfirm gnome-keyring
 
-#----------- Pgadmin Postgres-----------------------------
-#sudo pacman -S --noconfirm pgadmin3
-#sudo pacman -S --noconfirm pgadmin4
+#---------- OBS Studio ---------------------
+sudo pacman -S --noconfirm obs-studio
 
 #----------- PgModeler Postgres --------------------------
 #yay -S --noconfirm pgmodeler
@@ -169,18 +169,12 @@ yay -S --noconfirm gnome-keyring
 #------------ Foxit Reader -----------------------
 yay -S --noconfirm foxitreader
 
-#------------ Adobe Acrobat Reader -----------------------
-#yay -S --noconfirm acroread
-
-#----------- Reproductor vlc ----------------------
-sudo pacman -S --noconfirm vlc
-
 #------------ Gimp ----------------------
 #sudo pacman -S --noconfirm gimp
 
 #------------ Apache & PHP ------------------
 sudo pacman -S --noconfirm php7 php7-apache php7-cgi php7-mongodb php7-fpm php7-embed php7-intl php7-imap php7-gd php7-redis php7-snmp php7-memcache php7-sqlite php7-pgsql php7-odbc
-sudo pacman -S --noconfirm php php-apache php-cgi php-fpm php-gd php-embed php-intl php-imap php-redis php-snmp php-pgsql php-odbc php-sodium
+sudo pacman -S --noconfirm php php-apache php-cgi php-fpm php-gd php-embed php-intl php-imap php-redis php-snmp php-pgsql php-odbc php-sodium php-sqlite
 yay -S --noconfirm php-pdo_sqlsrv
 sudo systemctl enable httpd
 sudo systemctl restart httpd
@@ -250,8 +244,24 @@ sudo npm install -g sass
 #eslint
 sudo npm i -g eslint
 
+#------------ nvm ------------------------------
+sudo pacman -S --noconfirm nvm
+echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
+echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
+
 #------------ Yarn ------------------------------
 sudo pacman -S --noconfirm yarn
+
+#----------- Redis -----------------------------
+yay -S --noconfirm redis
+sudo systemctl enable redis
+sudo systemctl start redis
+
+#----------- Supervisor -----------------------------
+sudo pacman -S --noconfirm supervisor
 
 #----------- Flameshot -----------------------
 sudo pacman -S --noconfirm flameshot
@@ -271,13 +281,8 @@ sudo pacman -S --noconfirm filezilla
 #----------- Jetbrains DataGrid --------------------------
 yay -S --noconfirm datagrip
 
-#----------- Redis -----------------------------
-yay -S --noconfirm redis
-sudo systemctl enable redis
-sudo systemctl start redis
-
-#----------- Supervisor -----------------------------
-sudo pacman -S --noconfirm supervisor
+#----------- Wireguard (VPN) --------------------------
+sudo pacman -S --noconfirm wireguard-tools
 
 #----------- Peek ---------------------------------
 sudo pacman -S peek --noconfirm 
@@ -286,8 +291,8 @@ sudo pacman -S peek --noconfirm
 sudo pacman -S aws-cli --noconfirm 
 
 #----------- droidcam -----------------------------
-sudo pacman -S --noconfirm "linux$(uname -r | awk -F. '{print $1$2}')-headers"
-yay -S --noconfirm droidcam 
+#sudo pacman -S --noconfirm "linux$(uname -r | awk -F. '{print $1$2}')-headers"
+#yay -S --noconfirm droidcam 
 
 #----------- Virtualbox -----------------------------
 sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso $(pacman -Qsq "^linux" | grep "^linux[0-9]*[-rt]*$" | awk '{print $1"-virtualbox-host-modules"}' ORS=' ') 
@@ -297,6 +302,18 @@ sudo modprobe vboxdrv
 
 #----------- Apache BenchMark ------------------------
 yay -S --noconfirm  httperf-git
+
+#----------- gtkhash ------------------------
+sudo pacman -S --noconfirm
+
+#----------- ngrok ------------------------
+yay -S --noconfirm ngrok
+
+#----------- mkcert -----------------------
+sudo pacman -S --noconfirm mkcert
+sudo npm install -g local-ssl-proxy
+# mkcert localhost
+# local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem
 
 #------------ Virt-manager (KVM) ---------------
 # sudo pacman -S --noconfirm inxi dmidecode gparted && sudo inxi -Fxm

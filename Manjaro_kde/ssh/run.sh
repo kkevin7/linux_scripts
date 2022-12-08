@@ -1,0 +1,1 @@
+sudo cp -r ./ssh_config /etc/ssh/
