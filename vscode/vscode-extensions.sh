@@ -129,3 +129,6 @@ code --install-extension redhat.vscode-xml
 #NodeJS
 code --install-extension module-intellisense
 code --install-extension abdoseadaa.node-js-snippet
+code --install-extension wix.vscode-import-cost
+#Markdown
+code --install-extension shd101wyy.markdown-preview-enhanced

@@ -1,0 +1,37 @@
+sudo nano /etc/apache2/sites-available/wordpress.conf
+
+Creamos un virtual host adecuado en el directorio /etc/apache2/sites-available. En mi caso le he puesto laravel.conf y el contenido creado es este:
+
+<VirtualHost *:80>
+
+    DocumentRoot /var/www/html/marketersurveys
+    ServerName example.test
+    ServerAlias www.example.test
+
+    <Directory /var/www/html/marketersurveys>
+        DirectoryIndex index.php
+        AllowOverride All
+        Options FollowSymlinks
+        Require all granted
+
+        RewriteEngine On
+        RewriteBase /
+        RewriteRule ^index\.php$ - [L]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /index.php [L]
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+Por último, deshabilitamos el virtual host que apache crea por defecto, habilitamos el nuestro, habilitamos el modulo rewrite de apache y reiniciamos el servidor web:
+
+sudo a2dissite 000-default.conf
+sudo a2ensite wordpress.conf
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+
+Si ahora apuntamos con un navegador a la ip de nuestra máquina debian veremos la página de inicio de Laravel:

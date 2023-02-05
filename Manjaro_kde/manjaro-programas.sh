@@ -37,7 +37,7 @@ yay -S --noconfirm sublime-text-4
 #------- Visual Studio Code -------------
 yay -S --noconfirm visual-studio-code-bin
 #------- extensions -------------
-sh vscode-extensions.sh
+sh ../vscode/vscode-extensions.sh
 
 #---------- Postman ----------------
 yay -S --noconfirm postman-bin
@@ -299,6 +299,8 @@ sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso $(pacman -Qsq "^linux
 yay -S --noconfirm virtualbox-ext-oracle
 sudo gpasswd -a $USER vboxusers
 sudo modprobe vboxdrv
+#share folder
+# sudo adduser $USER vboxsf
 
 #----------- Apache BenchMark ------------------------
 yay -S --noconfirm  httperf-git

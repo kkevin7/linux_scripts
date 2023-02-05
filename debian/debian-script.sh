@@ -89,8 +89,9 @@ sudo apt-get install -y filezilla
 
 #------------ NodeJS --------------------
 cd /tmp
-curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.profile
+
 sudo apt-get install -y nodejs
 #React
 sudo npm i -g create-react-app
@@ -108,7 +109,8 @@ sudo apt-get install -y yarn
 
 #--------------------------- Apache -----------------------------
 sudo apt-get install -y apache2
-sudo chgrp -R www-data /var/www/html
+sudo chown -R www-data:www-data /var/www/html
+sudo usermod -a -G www-data $USER
 sudo chmod -R 777 /var/www/html
 sudo a2dissite 000-default.conf
 sudo a2enmod rewrite
