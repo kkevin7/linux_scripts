@@ -103,6 +103,10 @@ code --install-extension amiralizadeh9480.laravel-extra-intellisense
 code --install-extension onecentlin.laravel-extension-pack
 code --install-extension rexshi.phpdoc-comment-vscode-plugin
 code --install-extension devsense.phptools-vscode
+#C#
+code --install-extension ms-dotnettools.csharp
+code --install-extension kreativ-software.csharpextensions
+code --install-extension jmrog.vscode-nuget-package-manager
 #Firebase
 code --install-extension toba.vsfire
 #Icons
