@@ -175,7 +175,7 @@ php7.4-ldap php7.4-pspell php7.4-readline php7.4-dba php7.4-dev php7.4-redis
 # update-alternatives --set php /usr/bin/php8.2
 
 #--------------------------- PHP Debuger --------------------------------
-sudo apt-get install php-xdebug
+sudo apt-get install -y php-xdebug
 sudo echo "zend_extension=xdebug.so
 xdebug.remote_autostart = 1
 xdebug.remote_enable = 1
@@ -228,4 +228,8 @@ wget https://downloads.slack-edge.com/releases/linux/4.33.90/prod/x64/slack-desk
 sudo apt install ./slack-desktop-*.deb
 
 #--------------------- Papirus Icons --------------------------
-sudo apt install papirus-icon-theme
+sudo rm -r /etc/apt/sources.list.d/papirus-ppa.list
+sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu jammy main' > /etc/apt/sources.list.d/papirus-ppa.list"
+sudo wget -qO /etc/apt/trusted.gpg.d/papirus-ppa.asc 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9461999446FAF0DF770BFC9AE58A9D36647CAE7F'
+sudo apt-get update
+sudo apt-get install papirus-icon-theme
