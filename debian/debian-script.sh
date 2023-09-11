@@ -56,6 +56,7 @@ sh ../vscode/vscode-extensions.sh
 
 #--------------------- Docker -------------------------
 sudo rm -r /etc/apt/sources.list.d/docker.list
+
 # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg
@@ -72,6 +73,7 @@ sudo apt-get update
 
 # Install docker
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo usermod -aG docker $USER
 
 #---------------------- JDK ------------------------------
 #sudo apt-get install -y openjdk-8-jdk openjdk-8-jre
@@ -205,6 +207,9 @@ sudo chgrp $(id -un) /usr/bin/dumpcap
 sudo chmod +x /usr/bin/dumpcap
 sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
 
+#--------------------- WireGuard -----------------------------------
+sudo apt install -y wireguard
+
 #--------------------- Snap -----------------------------------
 sudo apt-get install -y snapd
 sudo snap install core
@@ -221,6 +226,12 @@ sudo snap install jdownloader2 --classic
 
 #--------------------- Datagrid ---------------------------
 sudo snap install datagrip --classic
+
+#--------------------- Apache Netbeans ---------------------------
+sudo snap install netbeans --classic
+
+#--------------------- Android Studio ---------------------------
+sudo snap install android-studio --classic
 
 #--------------------- Datagrid ---------------------------
 #sudo snap install slack --classic
