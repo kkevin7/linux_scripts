@@ -15,6 +15,7 @@ sudo pacman -S --noconfirm yay
 sudo pacman -S --noconfirm snapd
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install core
 
 #--------Actualizar yay----------
 yay -Syua --noconfirm
@@ -24,8 +25,11 @@ sudo pacman -S --noconfirm zsh
 
 #------ gedit editor text---------------
 sudo pacman -S --noconfirm gedit
+
+#------- brave browser ------------------
+sudo pacman -S --noconfirm brave-browser
  
-#------- google chrome (fakeroot) ------------------ 
+#------- google chrome ------------------
 yay -S --noconfirm google-chrome
 
 #------- Firefox Developer ------------------ 
@@ -43,9 +47,9 @@ sh ../vscode/vscode-extensions.sh
 yay -S --noconfirm postman-bin
 
 #------------ git ---------------------------
-git config --global user.name "Kevin Martinez"
-git config --global user.email "kkevinmartinez7@gmail.com"
-git config --global core.editor "nano"
+#git config --global user.name "Kevin Martinez"
+#git config --global user.email "kkevinmartinez7@gmail.com"
+#git config --global core.editor "code"
 
 #------------- Docker -----------------------------------
 sudo pacman -S --noconfirm docker
@@ -101,11 +105,6 @@ sudo chmod -R g+w /opt/flutter
 #---------- Intellij IDE Comunity -----------------
 #sudo pacman -S --noconfirm intellij-idea-community-edition
 
-#----------------- WPS Office ----------------------------
-#yay -S --noconfirm wps-office
-#yay -S --noconfirm wps-office-extension-spanish-dictionary
-#yay -S wps-office-mui-es-mx --noconfirm
-
 #----------- Reproductor vlc ----------------------
 sudo pacman -S --noconfirm vlc
 
@@ -160,8 +159,6 @@ sudo pacman -S --noconfirm htop
 sudo pacman -S --noconfirm mysql-workbench
 yay -S --noconfirm gnome-keyring
 
-#---------- OBS Studio ---------------------
-sudo pacman -S --noconfirm obs-studio
 
 #----------- PgModeler Postgres --------------------------
 #yay -S --noconfirm pgmodeler
@@ -173,8 +170,8 @@ yay -S --noconfirm foxitreader
 #sudo pacman -S --noconfirm gimp
 
 #------------ Apache & PHP ------------------
-sudo pacman -S --noconfirm php7 php7-apache php7-cgi php7-mongodb php7-fpm php7-embed php7-intl php7-imap php7-gd php7-redis php7-snmp php7-memcache php7-sqlite php7-pgsql php7-odbc
-sudo pacman -S --noconfirm php php-apache php-cgi php-fpm php-gd php-embed php-intl php-imap php-redis php-snmp php-pgsql php-odbc php-sodium php-sqlite
+#sudo pacman -S --noconfirm php7 php7-apache php7-cgi php7-mongodb php7-fpm php7-embed php7-intl php7-imap php7-gd php7-redis php7-snmp php7-memcache php7-sqlite php7-pgsql php7-odbc
+sudo pacman -S --noconfirm php php-apache php-cgi php-fpm php-gd php-embed php-intl php-redis php-snmp php-pgsql php-odbc php-sodium php-sqlite
 yay -S --noconfirm php-pdo_sqlsrv
 sudo systemctl enable httpd
 sudo systemctl restart httpd
@@ -270,16 +267,16 @@ sudo pacman -S --noconfirm flameshot
 yay -S --noconfirm robo3t-bin 
 
 #----------- Slack desktop -----------------------
-yay -S --noconfirm slack-desktop
+sudo snap install slack
 
-#----------- Whatsapp Desktop ---------------------
-sudo pacman -S --noconfirm whatsapp-for-linux
+#----------- Jetbrains DataGrid --------------------------
+sudo snap install datagrip --classic
+
+#---------- OBS Studio ---------------------
+sudo snap install obs-studio --classic
 
 #----------- Filezilla --------------------------
 sudo pacman -S --noconfirm filezilla
-
-#----------- Jetbrains DataGrid --------------------------
-yay -S --noconfirm datagrip
 
 #----------- Wireguard (VPN) --------------------------
 sudo pacman -S --noconfirm wireguard-tools
