@@ -197,10 +197,10 @@ sudo pacman -S --noconfirm flameshot
 yay -S --noconfirm robo3t-bin 
 
 #----------- Slack desktop -----------------------
-yay -S --noconfirm slack
+yay -S --noconfirm slack-desktop
 
 #----------- Jetbrains DataGrid --------------------------
-sudo yay install datagrip --classic
+sudo snap install datagrip --classic
 
 #---------- OBS Studio ---------------------
 sudo snap install obs-studio --classic
