@@ -49,7 +49,9 @@ yay -S --noconfirm postman-bin
 #------------ git ---------------------------
 #git config --global user.name "Kevin Martinez"
 #git config --global user.email "kkevinmartinez7@gmail.com"
-#git config --global core.editor "code"
+git config --global --unset user.name
+git config --global --unset user.email
+git config --global core.editor "code"
 
 #------------- Docker -----------------------------------
 sudo pacman -S --noconfirm docker
@@ -63,47 +65,12 @@ sudo pacman -S --noconfirm docker-compose
 #------------ comando (tree) ----------------------------
 sudo pacman -S --noconfirm tree
 
-#---------------- Maven ---------------------------------
-sudo pacman -S --noconfirm maven
-
-#-------- Java OpenJDK8 ------------------------
-sudo pacman -S --noconfirm jdk8-openjdk
-sudo pacman -S --noconfirm jdk11-openjdk
-sudo pacman -S --noconfirm jdk-openjdk
-sudo archlinux-java set java-11-openjdk
-
-#---------- Netbeans -----------------
-sudo pacman -S --noconfirm netbeans
-yay -S --noconfirm payara
-sudo wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar -P /opt/payara5/glassfish/lib/
-sudo chown -R $USER /opt/payara5/
-
-#---------- Eclipse IDE ---------------------
-sudo pacman -S --noconfirm eclipse-java
-sudo pacman -S --noconfirm eclipse-jee
-
-#------------------ Android Studio -----------------------
-yay -S --noconfirm android-studio
-#-----SDK Tools-----
-#Android SDK Command-line Tools (necessary)
-
-#----------------- Flutter ----------------- 
-yay -S --noconfirm flutter
-sudo groupadd flutterusers
-sudo gpasswd -a $USER flutterusers
-sudo chown -R :flutterusers /opt/flutter
-sudo chmod -R g+w /opt/flutter
-#flutter doctor --android-licenses
-
 #---------- Web Storm -----------------------------
 #yay -S --noconfirm webstorm
 #yay -S --noconfirm phpstrom
 
-#---------- Intellij IDE Ultimate --------------------
-#yay -S --noconfirm intellij-idea-ultimate-edition
-
-#---------- Intellij IDE Comunity -----------------
-#sudo pacman -S --noconfirm intellij-idea-community-edition
+#----------- Reproductor vlc ----------------------
+sudo pacman -S --noconfirm obsidian
 
 #----------- Reproductor vlc ----------------------
 sudo pacman -S --noconfirm vlc
@@ -134,9 +101,6 @@ sudo pacman -S --noconfirm qbittorrent
 #----------------- JDownloader ----------------
 yay -S --noconfirm jdownloader2
 
-#---------- pinta (editor de imagen)-------------------------
-#sudo pacman -S --noconfirm Pinta
-
 #------------ Wireshark ----------------------------------
 sudo pacman -S --noconfirm wireshark-cli wireshark-common wireshark-qt
 sudo groupadd wireshark
@@ -159,7 +123,6 @@ sudo pacman -S --noconfirm htop
 sudo pacman -S --noconfirm mysql-workbench
 yay -S --noconfirm gnome-keyring
 
-
 #----------- PgModeler Postgres --------------------------
 #yay -S --noconfirm pgmodeler
 
@@ -176,40 +139,6 @@ yay -S --noconfirm php-pdo_sqlsrv
 sudo systemctl enable httpd
 sudo systemctl restart httpd
 
-#Modules
-#sudo nano /etc/httpd/conf/httpd.conf
-
-#------------------ Uncomment -----------------------
-# LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-# LoadModule rewrite_module modules/mod_rewrite.so
-# LoadModule ssl_module modules/mod_ssl.so
-# LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
-
-#------------------ Comment --------------------------
-# LoadModule mpm_event_module modules/mod_mpm_event.so
-# LoadModule unique_id_module modules/mod_unique_id.so
-
-# --------- Add the following lines at the bottom for php8: -----
-# LoadModule php_module modules/libphp.so
-# AddHandler php-script php
-# Include conf/extra/php_module.conf
-
-#pho.ini
-# sudo nano /etc/php/php.ini
-
-# extension=bz2
-# extension=gd
-# extension=iconv
-# extension=mysqli
-# extension=pdo_mysql
-# extension=pdo_pgsql
-# extension=pgsql
-
-#Docs
-#https://forum.manjaro.org/t/howto-install-apache-mariadb-mysql-php-lamp/13000
-#https://diarioprogramador.com/como-instalar-el-stack-lamp-en-manjaro-linux/
-#https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-arch-linux
-
 #------------------ Composer ------------------
 sudo pacman -S --noconfirm composer
 
@@ -223,7 +152,8 @@ echo "PATH=\"$HOME/.config/composer/vendor/bin:$PATH\"" >> ~/.zshrc
 #------------ NodeJS --------------------
 sudo pacman -S --noconfirm nodejs npm
 cat /proc/sys/fs/inotify/max_user_watches
-sudo sysctl fs.inotify.max_user_watches=65535
+# sudo sysctl fs.inotify.max_user_watches=65535
+# cat /usr/lib/sysctl.d/10-manjaro.conf 
 sudo sysctl -p
 # echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
@@ -267,10 +197,10 @@ sudo pacman -S --noconfirm flameshot
 yay -S --noconfirm robo3t-bin 
 
 #----------- Slack desktop -----------------------
-sudo snap install slack
+yay -S --noconfirm slack
 
 #----------- Jetbrains DataGrid --------------------------
-sudo snap install datagrip --classic
+sudo yay install datagrip --classic
 
 #---------- OBS Studio ---------------------
 sudo snap install obs-studio --classic
@@ -286,10 +216,6 @@ sudo pacman -S peek --noconfirm
 
 #----------- AWS Console ---------------------------------
 sudo pacman -S aws-cli --noconfirm 
-
-#----------- droidcam -----------------------------
-#sudo pacman -S --noconfirm "linux$(uname -r | awk -F. '{print $1$2}')-headers"
-#yay -S --noconfirm droidcam 
 
 #----------- Virtualbox -----------------------------
 sudo pacman -S --noconfirm virtualbox virtualbox-guest-iso $(pacman -Qsq "^linux" | grep "^linux[0-9]*[-rt]*$" | awk '{print $1"-virtualbox-host-modules"}' ORS=' ') 
@@ -314,47 +240,48 @@ sudo npm install -g local-ssl-proxy
 # mkcert localhost
 # local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem
 
-#------------ Virt-manager (KVM) ---------------
-# sudo pacman -S --noconfirm inxi dmidecode gparted && sudo inxi -Fxm
-# sudo pacman -S --noconfirm virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
-# sudo systemctl enable libvirtd.service
-# sudo systemctl start libvirtd.service
-# sudo usermod -a -G kvm $(id -un)
-# sudo usermod -a -G libvirt $(id -un)
-# sudo virsh net-autostart default
-# sudo virsh net-start default
+#################################### JAVA Environment ###################################
 
-#------------- Imagenes Docker -----------------------------}
-#docker pull mariadb:latest 
-#docker pull postgres:latest 
-#docker pull debian:stretch
-#docker pull payara/server-full 
+#---------------- Maven ---------------------------------
+sudo pacman -S --noconfirm maven
 
+#-------- Java OpenJDK8 ------------------------
+sudo pacman -S --noconfirm jdk8-openjdk
+sudo pacman -S --noconfirm jdk11-openjdk
+sudo pacman -S --noconfirm jdk-openjdk
+sudo archlinux-java set java-11-openjdk
 
+#---------- Netbeans -----------------
+sudo pacman -S --noconfirm netbeans
+yay -S --noconfirm payara
+sudo wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar -P /opt/payara5/glassfish/lib/
+sudo chown -R $USER /opt/payara5/
 
-#------------TEMAS MANJARO------------------------
+#---------- Eclipse IDE ---------------------
+sudo pacman -S --noconfirm eclipse-java
+sudo pacman -S --noconfirm eclipse-jee
 
+#---------- Intellij IDE Ultimate --------------------
+#yay -S --noconfirm intellij-idea-ultimate-edition
 
-#################### OTROS #########################
+#---------- Intellij IDE Comunity -----------------
+#sudo pacman -S --noconfirm intellij-idea-community-edition
 
-#------------------ Lectores PDF (foxit fakeroot)--------------------------
-#yay -S --noconfirm foxitreader
-#sudo pacman -S --noconfirm okular
+########################################################################################
 
-#----------- viewnior (visualizador de imagenes) -----------
-#sudo pacman -S --noconfirm viewnior
+#################################### Android Environment ###################################
 
-#----------- covertidor de images a pdf consola ----------------
-#sudo pacman -S --noconfirm imagemagick
+#------------------ Android Studio -----------------------
+yay -S --noconfirm android-studio
+#-----SDK Tools-----
+#Android SDK Command-line Tools (necessary)
 
-#----------- Imagen a texto ---------------
-#sudo pacman -S ocrfeeder
-#yay -S tesseract 
+#----------------- Flutter ----------------- 
+#yay -S --noconfirm flutter
+#sudo groupadd flutterusers
+#sudo gpasswd -a $USER flutterusers
+#sudo chown -R :flutterusers /opt/flutter
+#sudo chmod -R g+w /opt/flutter
+#flutter doctor --android-licenses
 
-#------------ UNetbootin ---------------------
-#yay -S --noconfirm unetbootin
-
-#------------ Cligrab --------------------------
-#yay -S --noconfirm clipgrab-qt5
-
-
+########################################################################################

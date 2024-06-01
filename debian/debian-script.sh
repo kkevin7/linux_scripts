@@ -78,7 +78,7 @@ sudo apt-get update
 # Install docker
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker $USER
-
+# sudo newgrp docker
 #---------------------- JDK ------------------------------
 #sudo apt-get install -y openjdk-8-jdk openjdk-8-jre
 #sudo apt-get install -y openjdk-11-jdk openjdk-11-jre

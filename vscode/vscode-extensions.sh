@@ -75,6 +75,9 @@ code --install-extension hollowtree.vue-snippets
 code --install-extension sdras.vue-vscode-snippets
 code --install-extension dariofuzinato.vue-peek
 code --install-extension vuetifyjs.vuetify-vscode
+#Astro
+code --install-extension astro-build.astro-vscode
+code --install-extension sheltonlouis.astro-snippets
 #TypeScript
 code --install-extension kevinmcgowan.typescriptimport
 #Flutter
@@ -85,6 +88,7 @@ code --install-extension quicktype.quicktype
 code --install-extension formulahendry.terminal
 #Python
 code --install-extension ms-python.python
+code --install-extension ms-python.black-formatter
 code --install-extension tht13.python
 code --install-extension donjayamanne.python-extension-pack
 code --install-extension tushortz.python-extended-snippets
