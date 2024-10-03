@@ -249,9 +249,6 @@ sudo npm install -g local-ssl-proxy
 # mkcert localhost
 # local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem
 
-#----------- Ollama -----------------------
-curl -fsSL https://ollama.com/install.sh | sh
-
 #################################### JAVA Environment ###################################
 
 #---------------- Maven ---------------------------------
@@ -278,6 +275,12 @@ sudo pacman -S --noconfirm eclipse-jee
 
 #---------- Intellij IDE Comunity -----------------
 #sudo pacman -S --noconfirm intellij-idea-community-edition
+
+#----------- Ollama -----------------------
+curl -fsSL https://ollama.com/install.sh | sh
+
+#---------- Nvidia Libraries -----------------
+sudo pacman -S --noconfirm cuda cudnn python-tensorflow-opt-cuda
 
 ########################################################################################
 
