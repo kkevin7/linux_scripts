@@ -69,11 +69,20 @@ sudo pacman -S --noconfirm tree
 #yay -S --noconfirm webstorm
 #yay -S --noconfirm phpstrom
 
-#----------- Reproductor vlc ----------------------
+#---------- Python ----------------
+sudo pacman -S python-pip
+
+#---------- PyCharm ----------------
+sudo pacman -S pycharm-community-edition
+
+#----------- obsidian ----------------------
 sudo pacman -S --noconfirm obsidian
 
 #----------- Reproductor vlc ----------------------
 sudo pacman -S --noconfirm vlc
+
+#----------- Reproductor rhythmbox ----------------------
+sudo pacman -S --noconfirm rhythmbox
 
 #------------------ Libre Office -------------------------
 sudo pacman -S --noconfirm libreoffice-fresh-es
@@ -239,6 +248,9 @@ sudo pacman -S --noconfirm mkcert
 sudo npm install -g local-ssl-proxy
 # mkcert localhost
 # local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem
+
+#----------- Ollama -----------------------
+curl -fsSL https://ollama.com/install.sh | sh
 
 #################################### JAVA Environment ###################################
 

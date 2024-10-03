@@ -31,11 +31,13 @@ code --install-extension formulahendry.auto-rename-tag
 code --install-extension wakatime.vscode-wakatime
 code --install-extension alefragnani.project-manager
 code --install-extension bierner.emojisense
+code --install-extension gruntfuggly.activitusbar
 #Syntaxis
 code --install-extension CoenraadS.bracket-pair-colorizer
 code --install-extension naumovs.color-highlight
 code --install-extension mikestead.dotenv
 code --install-extension editorconfig.editorconfig
+#code --install-extension dbaeumer.vscode-eslint
 #Theme
 code --install-extension equinusocio.vsc-material-theme
 code --install-extension whizkydee.material-palenight-theme
@@ -51,6 +53,8 @@ code --install-extension ms-vscode.vscode-typescript-next
 code --install-extension sburg.vscode-javascript-booster
 code --install-extension jmsv.javascriptsnippetsstandard
 code --install-extension capaj.vscode-standardjs-snippets
+#TypeScrip
+code --install-extension pmneo.tsimporter
 #npm
 code --install-extension christian-kohler.npm-intellisense
 #React
@@ -75,6 +79,8 @@ code --install-extension hollowtree.vue-snippets
 code --install-extension sdras.vue-vscode-snippets
 code --install-extension dariofuzinato.vue-peek
 code --install-extension vuetifyjs.vuetify-vscode
+code --install-extension vue.volar
+code --install-extension antfu.goto-alias
 #Astro
 code --install-extension astro-build.astro-vscode
 code --install-extension sheltonlouis.astro-snippets
@@ -84,8 +90,11 @@ code --install-extension kevinmcgowan.typescriptimport
 code --install-extension Nash.awesome-flutter-snippets
 code --install-extension Dart-Code.dart-code
 code --install-extension Dart-Code.flutter
-code --install-extension quicktype.quicktype
 code --install-extension formulahendry.terminal
+#JSON
+code --install-extension quicktype.quicktype
+#.env
+code --install-extension mikestead.dotenv
 #Python
 code --install-extension ms-python.python
 code --install-extension ms-python.black-formatter
@@ -95,6 +104,7 @@ code --install-extension tushortz.python-extended-snippets
 code --install-extension kevinrose.vsc-python-indent
 code --install-extension almenon.arepl
 code --install-extension dongli.python-preview
+code --install-extension ms-toolsai.jupyter
 #Laravel 
 code --install-extension ryannaddy.laravel-artisan
 code --install-extension codingyu.laravel-goto-view
@@ -114,6 +124,8 @@ code --install-extension jmrog.vscode-nuget-package-manager
 #Firebase
 code --install-extension toba.vsfire
 #Icons
+code --install-extension tr.materialdesignicons-intellisense
+#VS-Icons
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension PKief.material-icon-theme
 #Theme
@@ -126,6 +138,8 @@ code --install-extension waderyan.gitblame
 code --install-extension codezombiech.gitignore
 #Sass
 code --install-extension syler.sass-indented
+#CSS
+code --install-extension csstools.postcss
 #Tailwindcss
 code --install-extension bradlc.vscode-tailwindcss
 #Docker
@@ -140,3 +154,5 @@ code --install-extension abdoseadaa.node-js-snippet
 code --install-extension wix.vscode-import-cost
 #Markdown
 code --install-extension shd101wyy.markdown-preview-enhanced
+#Comments
+code --install-extension aaron-bond.better-comments
