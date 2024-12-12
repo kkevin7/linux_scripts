@@ -158,11 +158,17 @@ echo "PATH=\"$HOME/.config/composer/vendor/bin:$PATH\"" >> ~/.zshrc
 #source ~/.bashrc
 #source ~/.zshrc
 
-#------------ NodeJS --------------------
-sudo pacman -S --noconfirm nodejs npm
+#------------ nvm ------------------------------
+sudo pacman -S --noconfirm nvm
+echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
+echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
+
 cat /proc/sys/fs/inotify/max_user_watches
 # sudo sysctl fs.inotify.max_user_watches=65535
-# cat /usr/lib/sysctl.d/10-manjaro.conf 
+# cat /usr/lib/sysctl.d/10-manjaro.conf
 sudo sysctl -p
 # echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
@@ -180,13 +186,6 @@ sudo npm install -g sass
 #eslint
 sudo npm i -g eslint
 
-#------------ nvm ------------------------------
-sudo pacman -S --noconfirm nvm
-echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
-echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
 
 #------------ Yarn ------------------------------
 sudo pacman -S --noconfirm yarn
@@ -254,11 +253,11 @@ sudo npm install -g local-ssl-proxy
 #---------------- Maven ---------------------------------
 sudo pacman -S --noconfirm maven
 
-#-------- Java OpenJDK8 ------------------------
+#-------- Java OpenJDK ------------------------
 sudo pacman -S --noconfirm jdk8-openjdk
 sudo pacman -S --noconfirm jdk11-openjdk
 sudo pacman -S --noconfirm jdk-openjdk
-sudo archlinux-java set java-11-openjdk
+#sudo archlinux-java set java-11-openjdk
 
 #---------- Netbeans -----------------
 sudo pacman -S --noconfirm netbeans
@@ -270,6 +269,16 @@ sudo chown -R $USER /opt/payara5/
 sudo pacman -S --noconfirm eclipse-java
 sudo pacman -S --noconfirm eclipse-jee
 
+#------------------ Android Studio -----------------------
+yay -S --noconfirm android-studio
+#-----SDK Tools-----
+#Android SDK Command-line Tools (necessary)
+
+#---------- Nvidia Libraries -----------------
+sudo pacman -S --noconfirm mhwd mhwd-nvidia
+sudo mhwd -i pci video-nvidia
+sudo pacman -S --noconfirm cuda cudnn python-tensorflow-opt-cuda
+
 #---------- Intellij IDE Ultimate --------------------
 #yay -S --noconfirm intellij-idea-ultimate-edition
 
@@ -279,17 +288,10 @@ sudo pacman -S --noconfirm eclipse-jee
 #----------- Ollama -----------------------
 curl -fsSL https://ollama.com/install.sh | sh
 
-#---------- Nvidia Libraries -----------------
-sudo pacman -S --noconfirm cuda cudnn python-tensorflow-opt-cuda
 
 ########################################################################################
 
 #################################### Android Environment ###################################
-
-#------------------ Android Studio -----------------------
-yay -S --noconfirm android-studio
-#-----SDK Tools-----
-#Android SDK Command-line Tools (necessary)
 
 #----------------- Flutter ----------------- 
 #yay -S --noconfirm flutter
