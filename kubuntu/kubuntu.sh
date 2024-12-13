@@ -179,22 +179,29 @@ sudo a2enmod php8.2
 # setup apache config
 sudo bash ./apache-config-updater.sh
 
-#--------------------------- Apache -----------------------------
-sudo apt-get install -y apache2
+# #--------------------------- Apache -----------------------------
+# sudo apt-get install -y apache2
+# sudo chown -R $USER:www-data /var/www/html
+# sudo usermod -a -G www-data $USER
+# sudo chmod -R 777 /var/www/html
+# sudo a2dissite 000-default.conf
+
+# #Enable Modules for Apache
+# sudo a2enmod rewrite
+# sudo a2enmod ssl
+# sudo a2enmod proxy
+# sudo a2enmod proxy_http
+# sudo a2enmod proxy_balancer
+# sudo a2enmod lbmethod_byrequests
+# sudo a2enmod headers
+# sudo systemctl restart apache2
+
+#--------------------------- NGINX -----------------------------
+sudo apt-get install -y nginx
 sudo chown -R $USER:www-data /var/www/html
 sudo usermod -a -G www-data $USER
 sudo chmod -R 777 /var/www/html
-sudo a2dissite 000-default.conf
-
-#Enable Modules for Apache
-sudo a2enmod rewrite
-sudo a2enmod ssl
-sudo a2enmod proxy
-sudo a2enmod proxy_http
-sudo a2enmod proxy_balancer
-sudo a2enmod lbmethod_byrequests
-sudo a2enmod headers
-sudo systemctl restart apache2
+sudo systemctl reload nginx
 
 #--------------------------- PHP Composer --------------------------------
 wget -qO - https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/ --filename=composer
