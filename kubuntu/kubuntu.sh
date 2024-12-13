@@ -1,6 +1,6 @@
 #-------------------- Update OS  --------------------
 sudo apt-get update
-sudo apt-get install -y software-properties-common apt-transport-https ca-certificates curl gnupg lsb-release
+sudo apt-get install -y software-properties-common apt-transport-https ca-certificates curl wget gpg lsb-release build-essential
 
 #-------- Terminal zsh --------------
 sudo apt-get install -y zsh
@@ -15,8 +15,15 @@ sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" 
 sudo apt-get update
 sudo apt-get install -y google-chrome-stable
 
+#------ brave browser -------
+sudo apt install curl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install -y brave-browser
+
 #--------------------- Sublime Text -------------------
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
 sudo echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update
 sudo apt-get install -y sublime-text
@@ -25,29 +32,35 @@ sudo apt-get install -y sublime-text
 sudo apt-get install wget gpg
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 rm -f packages.microsoft.gpg
 sudo apt update
 sudo apt -y install code
 sh ../vscode/vscode-extensions.sh
 
 #--------------------- Docker -------------------------
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# Add Docker's official GPG key:
 sudo apt-get update
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
-sudo usermod -aG docker $USER
-sudo apt -y install docker-compose
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 #---------------------- Docker Compose ------------------
 sudo apt -y install docker-compose
 
-#---------------------- JDK ------------------------------
-sudo apt-get install -y openjdk-11-jdk openjdk-11-jre
-sudo apt-get install -y default-jdk default-jre
+#---------------- Filezilla -----------------------------
+sudo apt-get install -y filezilla
+
+#----------- Screenshot ---------------------
+sudo apt-get install -y flameshot
 
 #---------------------- VLC ---------------------------
 sudo apt-get install -y vlc
@@ -67,32 +80,36 @@ sudo apt-get install -y unrar
 #----------- htop (ver procesos) ---------------------
 sudo apt-get install -y htop
 
-#----------- Screenshot ---------------------
-sudo apt-get install -y flameshot
-
 #------------ comando (tree) ----------------------------
 sudo apt-get install -y tree
+
+#---------------------- JDK ------------------------------
+sudo apt-get install -y openjdk-11-jdk openjdk-11-jre
+sudo apt-get install -y default-jdk default-jre
 
 #---------------- Maven ---------------------------------
 sudo apt-get install -y maven
 
-#---------------- Filezilla -----------------------------
-sudo apt-get install -y filezilla
-
-#------------ NodeJS --------------------
-cd /tmp
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-source ~/.profile
-source ~/.zshrc
+#------------ nvm ------------------------------
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 nvm install node
-nvm install 16
-nvm use 16
-nvm run default --version
 
-#React
+cat /proc/sys/fs/inotify/max_user_watches
+# sudo sysctl fs.inotify.max_user_watches=65535
+# cat /usr/lib/sysctl.d/10-manjaro.conf
+sudo sysctl -p
+# echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+
+#React JS
 npm i -g create-react-app
-#Angular
+#Angular JS
 npm install -g @angular/cli
+#Vue JS
+npm install -g @vue/cli
+npm install -g create-nuxt-app
 #TypeScript
 npm i -g typescript
 #Sass
@@ -100,11 +117,24 @@ npm install -g sass
 #eslint
 npm i -g eslint
 
-#--------------------------- Yarn ------------------------------
-sudo apt-get install -y yarn
+#----------- Yarn -----------------------
+npm install --global yarn
 
 #--------------------------- PHP --------------------------------
-sudo add-apt-repository ppa:ondrej/php -y
+#sudo add-apt-repository ppa:ondrej/php -y
+gpgKey='B8DC7E53946656EFBCE4C1DD71DAEAAB4AD4CAB6'
+gpgKeyPath='/etc/apt/keyrings/ondrej-ubuntu-php.gpg'
+gpgURL="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${gpgKey}"
+sudo curl "${gpgURL}" | gpg --dearmor | sudo tee ${gpgKeyPath} >/dev/null
+gpg --dry-run --quiet --import --import-options import-show ${gpgKeyPath}
+
+sudo bash -c 'cat > /etc/apt/sources.list.d/ondrej-ubuntu-php-noble.sources <<EOF
+Types: deb
+URIs: https://ppa.launchpadcontent.net/ondrej/php/ubuntu/
+Suites: noble
+Components: main
+Signed-By: /etc/apt/keyrings/ondrej-ubuntu-php.gpg
+EOF'
 sudo apt update
 
 # php 8.2
@@ -129,19 +159,22 @@ php7.4-ldap php7.4-pspell php7.4-readline php7.4-dba php7.4-dev php7.4-redis
 # sudo update-alternatives --config php
 
 #Change Configuration
-sudo nano /etc/php/8.1/cli/php.ini
-sudo nano /etc/php/8.1/apache2/php.ini
+# sudo nano /etc/php/8.1/cli/php.ini
+# sudo nano /etc/php/8.1/apache2/php.ini
 
-upload_max_filesize = 40M 
-post_max_size = 48M 
-memory_limit = 256M 
-max_execution_time = 600 
-max_input_vars = 3000 
-max_input_time = 1000
+# upload_max_filesize = 40M 
+# post_max_size = 48M 
+# memory_limit = 256M 
+# max_execution_time = 600 
+# max_input_vars = 3000 
+# max_input_time = 1000
 
 #Enable PHP 8.1 for Apache
 #sudo a2dismod php8.1
-#sudo a2enmod php8.1
+sudo a2enmod php8.2
+
+# setup apache config
+sudo bash ./apache-config-updater.sh
 
 #--------------------------- Apache -----------------------------
 sudo apt-get install -y apache2
@@ -169,20 +202,6 @@ export PATH=~/.config/composer/vendor/bin:$PATH
 echo 'export PATH=~/.config/composer/vendor/bin:$PATH' >> /home/${USER}/.bashrc
 source ~/.bashrc
 
-#------------ NodeJS --------------------
-cd /tmp
-curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt-get update
-sudo apt-get install -y nodejs
-
-#----------- Yarn -----------------------
-sudo apt remove yarn
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update
-sudo apt-get install -y yarn
-
 #------------ Certbot ---------------------
 sudo apt-add-repository ppa:certbot/certbot -y
 sudo apt-get update -y
@@ -205,3 +224,7 @@ sudo snap install slack --classic
 
 #--------------------- Datagrid ---------------------------
 sudo snap install datagrip --classic
+
+#--------------------- Nvidia Drivers ---------------------------
+sudo apt install -y nvidia-driver-560
+

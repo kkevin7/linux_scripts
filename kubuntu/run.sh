@@ -1,0 +1,1 @@
+sudo bash apache-config-updater.sh
