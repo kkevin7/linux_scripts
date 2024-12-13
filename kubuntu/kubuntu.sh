@@ -1,6 +1,6 @@
 #-------------------- Update OS  --------------------
 sudo apt-get update
-sudo apt-get install -y software-properties-common apt-transport-https ca-certificates curl wget gpg lsb-release build-essential
+sudo apt-get install -y software-properties-common apt-transport-https ca-certificates curl wget gpg lsb-release build-essential gcc
 
 #-------- Terminal zsh --------------
 sudo apt-get install -y zsh
@@ -82,6 +82,9 @@ sudo apt-get install -y htop
 
 #------------ comando (tree) ----------------------------
 sudo apt-get install -y tree
+
+#--------------------- Wireguard ---------------------------
+sudo apt install -y wireguard
 
 #---------------------- JDK ------------------------------
 sudo apt-get install -y openjdk-11-jdk openjdk-11-jre
@@ -225,6 +228,13 @@ sudo snap install slack --classic
 #--------------------- Datagrid ---------------------------
 sudo snap install datagrip --classic
 
-#--------------------- Nvidia Drivers ---------------------------
+#--------------------- Nvidia ---------------------------
 sudo apt install -y nvidia-driver-560
+sudo prime-select nvidia
+sudo apt install -y nvidia-cuda-toolkit
+
+# Remove nvidia drivers
+# sudo apt remove --purge nvidia-driver-560-open
+# sudo apt autoremove -y
+# sudo modprobe -r nvidia
 

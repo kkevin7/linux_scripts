@@ -4,10 +4,13 @@
 CONFIG_FILES=(
     "/etc/php/7.4/cli/php.ini"
     "/etc/php/7.4/apache2/php.ini"
+    "/etc/php/7.4/fpm/php.ini"
     "/etc/php/8.1/cli/php.ini"
     "/etc/php/8.1/apache2/php.ini"
+    "/etc/php/8.1/fpm/php.ini"
     "/etc/php/8.2/cli/php.ini"
     "/etc/php/8.2/apache2/php.ini"
+    "/etc/php/8.2/fpm/php.ini"
 )
 
 # Values to modify or add
