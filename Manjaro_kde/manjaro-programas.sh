@@ -151,6 +151,9 @@ sudo systemctl restart httpd
 #------------------ Composer ------------------
 sudo pacman -S --noconfirm composer
 
+#------------------ LM Studio ------------------
+yay -S --noconfirm lmstudio
+
 #------------------ Laravel ------------------
 composer global require laravel/installer
 echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
@@ -218,6 +221,8 @@ sudo pacman -S --noconfirm filezilla
 
 #----------- Wireguard (VPN) --------------------------
 sudo pacman -S --noconfirm wireguard-tools
+sudo pacman -S --noconfirm openresolv
+sudo pacman -S --noconfirm linux$(uname -r | sed -E 's/^([0-9]+)\.([0-9]+).*/\1\2/')-headers
 
 #----------- Peek ---------------------------------
 sudo pacman -S peek --noconfirm 
