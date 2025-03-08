@@ -150,6 +150,14 @@ sudo a2enmod lbmethod_byrequests
 sudo a2enmod headers
 sudo systemctl restart apache2
 
+#--------------------------- NGINX -----------------------------
+sudo systemctl disable apache2
+sudo apt-get install -y nginx
+sudo chown -R $USER:www-data /var/www/html
+sudo usermod -a -G www-data $USER
+sudo chmod -R 777 /var/www/html
+sudo systemctl reload nginx
+
 #--------------------------- PHP --------------------------------
 sudo rm -r /etc/apt/sources.list.d/php.list
 sudo apt install apt-transport-https lsb-release ca-certificates wget -y
@@ -238,12 +246,12 @@ sudo snap install android-studio --classic
 
 #--------------------- Datagrid ---------------------------
 #sudo snap install slack --classic
-wget https://downloads.slack-edge.com/releases/linux/4.33.90/prod/x64/slack-desktop-4.33.90-amd64.deb
-sudo apt install ./slack-desktop-*.deb
+# wget https://downloads.slack-edge.com/releases/linux/4.33.90/prod/x64/slack-desktop-4.33.90-amd64.deb
+# sudo apt install ./slack-desktop-*.deb
 
 #--------------------- Papirus Icons --------------------------
-sudo rm -r /etc/apt/sources.list.d/papirus-ppa.list
-sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu jammy main' > /etc/apt/sources.list.d/papirus-ppa.list"
-sudo wget -qO /etc/apt/trusted.gpg.d/papirus-ppa.asc 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9461999446FAF0DF770BFC9AE58A9D36647CAE7F'
-sudo apt-get update
-sudo apt-get install -y papirus-icon-theme
+# sudo rm -r /etc/apt/sources.list.d/papirus-ppa.list
+# sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu jammy main' > /etc/apt/sources.list.d/papirus-ppa.list"
+# sudo wget -qO /etc/apt/trusted.gpg.d/papirus-ppa.asc 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9461999446FAF0DF770BFC9AE58A9D36647CAE7F'
+# sudo apt-get update
+# sudo apt-get install -y papirus-icon-theme

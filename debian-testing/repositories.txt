@@ -1,3 +1,7 @@
+#deb cdrom:[Debian GNU/Linux testing _Trixie_ - Official Snapshot amd64 DVD Binary-1 with firmware 20250303-03:39]/ trixie contrib main non-free-firmware
+
+# ---------------- Debian Testing ----------------------
+
 # Repositorios principales de Debian Testing
 deb http://ftp.debian.org/debian/ testing main contrib non-free non-free-firmware
 deb-src http://ftp.debian.org/debian/ testing main contrib non-free non-free-firmware
@@ -9,3 +13,35 @@ deb-src http://ftp.debian.org/debian/ testing-updates main contrib non-free non-
 # Actualizaciones de seguridad de Debian Testing
 deb http://security.debian.org/debian-security/ testing-security main contrib non-free non-free-firmware
 deb-src http://security.debian.org/debian-security/ testing-security main contrib non-free non-free-firmware
+
+# ---------------- Debian Bookworm ----------------------
+
+deb http://ftp.debian.org/debian/ bookworm main contrib non-free non-free-firmware
+deb-src http://ftp.debian.org/debian/ bookworm main contrib non-free non-free-firmware
+
+# Actualizaciones de Debian
+deb http://ftp.debian.org/debian/ bookworm-updates main contrib non-free non-free-firmware
+deb-src http://ftp.debian.org/debian/ bookworm-updates main contrib non-free non-free-firmware
+
+# Actualizaciones de seguridad de Debian
+deb http://security.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
+deb-src http://security.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
+
+# Backports
+deb https://deb.debian.org/debian bookworm-backports main contrib non-free non-free-firmware
+deb-src https://deb.debian.org/debian bookworm-backports main contrib non-free non-free-firmware
+
+# ---------------- Debian Bullseye ----------------------
+
+deb https://deb.debian.org/debian bullseye main contrib non-free
+deb-src https://deb.debian.org/debian bullseye main contrib non-free
+
+deb https://deb.debian.org/debian-security/ bullseye-security main contrib non-free
+deb-src https://deb.debian.org/debian-security/ bullseye-security main contrib non-free
+
+deb https://deb.debian.org/debian bullseye-updates main contrib non-free
+deb-src https://deb.debian.org/debian bullseye-updates main contrib non-free
+
+# Backports
+deb https://deb.debian.org/debian bullseye-backports main contrib non-free
+deb-src https://deb.debian.org/debian bullseye-backports main contrib non-free
