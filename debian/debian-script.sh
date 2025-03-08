@@ -31,10 +31,10 @@ git config --global core.editor "code"
 sudo apt-get install -y zsh
 
 #-------------------- Google Chrome-------------------- 
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-sudo apt-get update
-sudo apt-get install -y google-chrome-stable
+wget -qO - https://dl.google.com/linux/linux_signing_key.pub | sudo tee /usr/share/keyrings/google-chrome.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+sudo apt update
+sudo apt install -y google-chrome-stable
 
 #--------------------- Sublime Text -------------------
 sudo rm -r /etc/apt/sources.list.d/sublime-text.list
