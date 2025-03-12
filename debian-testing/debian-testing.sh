@@ -63,9 +63,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-#---------------------- Docker Compose ------------------
-sudo apt -y install docker-compose
+sudo usermod -aG docker $USER
 
 #---------------- Filezilla -----------------------------
 sudo apt-get install -y filezilla
@@ -240,6 +238,9 @@ sudo systemctl enable snapd
 
 #--------------------- Postman ------------------------
 sudo snap install postman --classic
+
+#--------------------- Postman ------------------------
+sudo snap install slack --classic
 
 #--------------------- Mysql Workbeanch ------------------------
 sudo snap install mysql-workbench-community --classic
