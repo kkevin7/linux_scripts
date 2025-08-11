@@ -83,6 +83,15 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker $USER
 # sudo newgrp docker
+
+#--------------------- Slack ---------------------------
+sudo apt update
+sudo apt install apt-transport-https curl gnupg -y
+curl -fsSL https://packagecloud.io/slacktechnologies/slack/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/slack.gpg
+echo "deb [signed-by=/usr/share/keyrings/slack.gpg] https://packagecloud.io/slacktechnologies/slack/debian/ jessie main" | sudo tee /etc/apt/sources.list.d/slack.list
+sudo apt update
+sudo apt install -y slack-desktop
+
 #---------------------- JDK ------------------------------
 #sudo apt-get install -y openjdk-8-jdk openjdk-8-jre
 #sudo apt-get install -y openjdk-11-jdk openjdk-11-jre
@@ -117,9 +126,6 @@ sudo apt-get install -y maven
 
 #---------------- Filezilla -----------------------------
 sudo apt-get install -y filezilla
-
-#---------------- sanp -----------------------------
-sudo apt -y install snapd
 
 #------------ NodeJS --------------------
 cd /tmp
@@ -173,22 +179,34 @@ sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gp
 sudo sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 sudo apt update
 
+# php 8.4
+sudo apt-get install -y php8.4 php8.4-cli php8.4-phpdbg php8.4-fpm php8.4-cgi libphp8.4-embed \
+libapache2-mod-php8.4 php8.4-common php8.4-gd php8.4-mysql php8.4-pgsql php8.4-curl php8.4-intl \
+php8.4-mbstring php8.4-bcmath php8.4-imap php8.4-xml php8.4-zip php8.4-bz2 php8.4-bcmath php8.4-memcache \
+php8.4-ldap php8.4-pspell php8.4-readline php8.4-dba php8.4-dev php8.4-redis
+
+# php 8.3
+sudo apt-get install -y php8.3 php8.3-cli php8.3-phpdbg php8.3-fpm php8.3-cgi libphp8.3-embed \
+libapache2-mod-php8.3 php8.3-common php8.3-gd php8.3-mysql php8.3-pgsql php8.3-curl php8.3-intl \
+php8.3-mbstring php8.3-bcmath php8.3-imap php8.3-xml php8.3-zip php8.3-bz2 php8.3-bcmath php8.3-memcache \
+php8.3-ldap php8.3-pspell php8.3-readline php8.3-dba php8.3-dev php8.3-redis
+
 # php 8.2
 sudo apt-get install -y php8.2 php8.2-cli php8.2-phpdbg php8.2-fpm php8.2-cgi libphp8.2-embed \
 libapache2-mod-php8.2 php8.2-common php8.2-gd php8.2-mysql php8.2-pgsql php8.2-curl php8.2-intl \
-php8.2-mbstring php8.2-bcmath php8.2-imap php8.2-xml php8.2-zip php8.2-bz2 php8.2-bcmath php8.2-memcached \
+php8.2-mbstring php8.2-bcmath php8.2-imap php8.2-xml php8.2-zip php8.2-bz2 php8.2-bcmath php8.2-memcache \
 php8.2-ldap php8.2-pspell php8.2-readline php8.2-dba php8.2-dev php8.2-redis
 
 # php 8.1
 sudo apt-get install -y php8.1 php8.1-cli php8.1-phpdbg php8.1-fpm php8.1-cgi libphp8.1-embed \
 libapache2-mod-php8.1 php8.1-common php8.1-gd php8.1-mysql php8.1-pgsql php8.1-curl php8.1-intl \
-php8.1-mbstring php8.1-bcmath php8.1-imap php8.1-xml php8.1-zip php8.1-bz2 php8.1-bcmath php8.1-memcached \
+php8.1-mbstring php8.1-bcmath php8.1-imap php8.1-xml php8.1-zip php8.1-bz2 php8.1-bcmath php8.1-memcache \
 php8.1-ldap php8.1-pspell php8.1-readline php8.1-dba php8.1-dev php8.1-redis
 
 # php 7.4
 sudo apt-get install -y php7.4 php7.4-cli php7.4-phpdbg php7.4-fpm php7.4-cgi libphp7.4-embed \
 libapache2-mod-php7.4 php7.4-common php7.4-gd php7.4-mysql php7.4-pgsql php7.4-curl php7.4-intl \
-php7.4-mbstring php7.4-bcmath php7.4-imap php7.4-xml php7.4-zip php7.4-bz2 php7.4-bcmath php7.4-memcached \
+php7.4-mbstring php7.4-bcmath php7.4-imap php7.4-xml php7.4-zip php7.4-bz2 php7.4-bcmath php7.4-memcache \
 php7.4-ldap php7.4-pspell php7.4-readline php7.4-dba php7.4-dev php7.4-redis
 
 # Switch php version
@@ -210,9 +228,7 @@ xdebug.remote_port = 9003
 sudo systemctl restart apache2
 
 #--------------------------- PHP Composer --------------------------------
-#wget -qO - https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/ --filename=composer
-
-
+wget -qO - https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/ --filename=composer
 
 #---------------------- Wireshark ----------------------------------
 sudo apt-get install -y wireshark
@@ -247,8 +263,4 @@ sudo snap install netbeans --classic
 
 #--------------------- Android Studio ---------------------------
 sudo snap install android-studio --classic
-
-#--------------------- Slack ---------------------------
-sudo snap install slack --classic
-
 
