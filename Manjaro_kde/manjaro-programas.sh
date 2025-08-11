@@ -148,6 +148,7 @@ yay -S --noconfirm php-pdo_sqlsrv
 sudo systemctl enable httpd
 sudo systemctl restart httpd
 
+#yay -S --noconfirm php82 php82-apache php82-cgi php82-fpm php82-gd php82-embed php82-intl php82-redis php82-snmp php82-pgsql php82-odbc php82-sodium php82-sqlite
 #------------------ Composer ------------------
 sudo pacman -S --noconfirm composer
 

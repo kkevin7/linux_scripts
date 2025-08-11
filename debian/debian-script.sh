@@ -1,13 +1,11 @@
-#-------------------- Debian Repositories  --------------------
-sudo cp -fr ./repositories/debian12/sources.list /etc/apt/sources.list
-
 #-------------------- Debian Grub configuration  --------------------
 sudo cp -r /etc/default/grub /etc/default/grub.bak
 sudo cp -fr ./grub /etc/default/grub
 
 #-------------------- Update OS  --------------------
 sudo apt-get update
-sudo apt-get install -y software-properties-common apt-transport-https ca-certificates curl gnupg lsb-release
+sudo apt-get install -y software-properties-common
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release wget
 
 #-------------------- Sudo ---------------------------
 apt-get install -y sudo
@@ -16,9 +14,9 @@ sudo usermod -a -G sudo $USER
 
 #-------------------- Nvidia -----------------------------------
 #sudo apt-get install -y linux-headers-$(uname -r) build-essential libglvnd-dev pkg-config
-sudo apt update && sudo apt install -y nvidia-detect
-sudo nvidia-detect
-sudo apt-get install -y nvidia-driver
+#sudo apt update && sudo apt install -y nvidia-detect
+#sudo nvidia-detect
+#sudo apt-get install -y nvidia-driver
 
 #-------------------- Build Commands ------------------
 sudo apt-get install -y build-essential gettext sassc
@@ -29,6 +27,13 @@ git config --global core.editor "code"
 
 #-------- Terminal zsh --------------
 sudo apt-get install -y zsh
+
+#-------------------- Brave -------------------- 
+sudo apt install curl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources
+sudo apt update
+sudo apt install -y brave-browser
 
 #-------------------- Google Chrome-------------------- 
 wget -qO - https://dl.google.com/linux/linux_signing_key.pub | sudo tee /usr/share/keyrings/google-chrome.gpg > /dev/null
@@ -113,12 +118,15 @@ sudo apt-get install -y maven
 #---------------- Filezilla -----------------------------
 sudo apt-get install -y filezilla
 
+#---------------- sanp -----------------------------
+sudo apt -y install snapd
+
 #------------ NodeJS --------------------
 cd /tmp
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 source ~/.profile
+nvm install node
 
-sudo apt-get install -y nodejs
 #React
 sudo npm i -g create-react-app
 #Angular
@@ -131,7 +139,7 @@ sudo npm install -g sass
 sudo npm i -g eslint
 
 #--------------------------- Yarn ------------------------------
-sudo apt-get install -y yarn
+npm install --global yarn
 
 #--------------------------- Apache -----------------------------
 sudo apt-get install -y apache2
@@ -202,13 +210,9 @@ xdebug.remote_port = 9003
 sudo systemctl restart apache2
 
 #--------------------------- PHP Composer --------------------------------
-wget -qO - https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/ --filename=composer
+#wget -qO - https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/ --filename=composer
 
-#--------------------------- Laravel -------------------------------------
-composer global require laravel/installer
-export PATH=~/.config/composer/vendor/bin:$PATH
-echo 'export PATH=~/.config/composer/vendor/bin:$PATH' >> /home/${USER}/.bashrc
-source ~/.bashrc
+
 
 #---------------------- Wireshark ----------------------------------
 sudo apt-get install -y wireshark
@@ -244,14 +248,7 @@ sudo snap install netbeans --classic
 #--------------------- Android Studio ---------------------------
 sudo snap install android-studio --classic
 
-#--------------------- Datagrid ---------------------------
-#sudo snap install slack --classic
-# wget https://downloads.slack-edge.com/releases/linux/4.33.90/prod/x64/slack-desktop-4.33.90-amd64.deb
-# sudo apt install ./slack-desktop-*.deb
+#--------------------- Slack ---------------------------
+sudo snap install slack --classic
 
-#--------------------- Papirus Icons --------------------------
-# sudo rm -r /etc/apt/sources.list.d/papirus-ppa.list
-# sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu jammy main' > /etc/apt/sources.list.d/papirus-ppa.list"
-# sudo wget -qO /etc/apt/trusted.gpg.d/papirus-ppa.asc 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9461999446FAF0DF770BFC9AE58A9D36647CAE7F'
-# sudo apt-get update
-# sudo apt-get install -y papirus-icon-theme
+
