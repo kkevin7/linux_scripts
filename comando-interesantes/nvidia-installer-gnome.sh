@@ -11,6 +11,7 @@ sudo apt update && sudo apt full-upgrade -y
 echo "[2/9] Instalando herramientas básicas..."
 sudo apt install -y build-essential dkms linux-headers-$(uname -r) \
     firmware-misc-nonfree initramfs-tools util-linux systemd-sysv
+sudo apt install -y $(ls /boot/vmlinuz-* | sed 's/.*vmlinuz-//' | xargs -I{} echo linux-headers-{})
 
 # 3. Eliminar driver 'nouveau'
 echo "[3/9] Bloqueando driver 'nouveau'..."

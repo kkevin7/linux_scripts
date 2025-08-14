@@ -1,6 +1,6 @@
 #-------------------- Debian Grub configuration  --------------------
-sudo cp -r /etc/default/grub /etc/default/grub.bak
-sudo cp -fr ./grub /etc/default/grub
+# sudo cp -r /etc/default/grub /etc/default/grub.bak
+# sudo cp -fr ./grub /etc/default/grub
 
 #-------------------- Update OS  --------------------
 sudo apt-get update

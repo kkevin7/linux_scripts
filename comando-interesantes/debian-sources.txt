@@ -14,5 +14,3 @@ deb-src https://deb.debian.org/debian trixie-updates main contrib non-free non-f
 deb https://deb.debian.org/debian trixie-backports main contrib non-free non-free-firmware
 deb-src https://deb.debian.org/debian trixie-backports main contrib non-free non-free-firmware
 
-# NVIDIA Official Repository (drivers y CUDA)
-deb https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/ /

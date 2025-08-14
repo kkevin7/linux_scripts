@@ -1,3 +1,5 @@
+sudo apt install -y gnome-shell-extension-dash-to-dock gnome-shell-extension-manager gnome-tweaks
+
 #--------------------- Dash to dock ------------------
 https://extensions.gnome.org/extension/307/dash-to-dock/
 #cd /tmp
