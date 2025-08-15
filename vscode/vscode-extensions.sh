@@ -23,7 +23,7 @@ code --install-extension ms-vscode-remote.remote-wsl
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension github.vscode-pull-request-github
 code --install-extension formulahendry.code-runner
-code --install-extension tabnine.tabnine-vscode
+#code --install-extension tabnine.tabnine-vscode
 #Normal
 code --install-extension Tyriar.lorem-ipsum
 code --install-extension formulahendry.auto-close-tag

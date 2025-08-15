@@ -60,7 +60,8 @@ sudo apt-get update
 sudo apt-get install -y code
 
 #Extensions
-sh ../vscode/vscode-extensions.sh
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+sh ${SCRIPT_PATH}/../vscode/vscode-extensions.sh
 
 #--------------------- Docker -------------------------
 sudo rm -r /etc/apt/sources.list.d/docker.list
