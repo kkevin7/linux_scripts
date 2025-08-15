@@ -1,38 +1,48 @@
-#!/bin/bash
-set -euo pipefail
+#!/usr/bin/env bash
+set -e
 
-# ==========================
-# Realtek RTL8126 DKMS Installer for Debian/Ubuntu
-# ==========================
+DRIVER="realtek-r8126-dkms"
+PPA="ppa:awesometic/ppa"
 
-echo "[INFO] Actualizando lista de paquetes..."
+echo "=== Instalando dependencias básicas ==="
 sudo apt update
-
-echo "[INFO] Instalando dependencias necesarias..."
 sudo apt install -y \
     build-essential \
     dkms \
     git \
     linux-headers-$(uname -r) \
-    software-properties-common \
     wget \
     curl \
     initramfs-tools \
+    apt-transport-http \
     ca-certificates
 
-echo "[INFO] Agregando PPA de awesometic..."
-sudo add-apt-repository -y ppa:awesometic/ppa
-sudo apt update
+echo "=== Añadiendo PPA (método recomendado) ==="
+if ! grep -R "${PPA}" /etc/apt/sources.list* &>/dev/null; then
+  sudo add-apt-repository -y "${PPA}"
+  sudo apt update
+fi
 
-echo "[INFO] Instalando paquete realtek-r8126-dkms..."
-sudo apt install -y realtek-r8126-dkms
+echo "=== Instalando el paquete DKMS ==="
+sudo apt install -y ${DRIVER} || {
+  echo "Error instalando ${DRIVER}, intentando reparar dependencias..."
+  sudo apt install -f -y
+  sudo apt install -y ${DRIVER}
+}
 
-echo "[INFO] Creando blacklist para r8169..."
-echo "blacklist r8169" | sudo tee /etc/modprobe.d/blacklist-r8169.conf > /dev/null
+echo "=== Verificando módulos cargados ==="
+if lsmod | grep -iq r8169; then
+  echo "El módulo r8169 está cargado y puede interferir con r8126."
+  echo "Lo bloquearemos..."
+  sudo tee /etc/modprobe.d/blacklist-r8169.conf >/dev/null <<EOF
+# Para usar el driver r8126 explícitamente
+blacklist r8169
+EOF
+  echo "Actualizando initramfs..."
+  sudo update-initramfs -u
+else
+  echo "No se detectó el módulo r8169 cargado."
+fi
 
-echo "[INFO] Actualizando initramfs..."
-sudo update-initramfs -u
-
-echo "[INFO] Instalación completada."
-echo "Se recomienda reiniciar el sistema para aplicar los cambios."
-lspci | grep -i realtek
+echo "=== Reiniciando sistema para aplicar cambios ==="
+echo "Por favor, reinicia para completar la instalación."
