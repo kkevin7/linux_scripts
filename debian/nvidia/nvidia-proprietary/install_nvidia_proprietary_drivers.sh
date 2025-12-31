@@ -1,3 +1,6 @@
+# Documentation
+# https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Debian&target_version=13&target_type=deb_network
+
 # Using nvidia-detect
 # This script requires installation itself, but it will also recommended which driver to install:
 
@@ -12,11 +15,13 @@ sudo apt install -y linux-headers-$(uname -r) linux-headers-generic
 
 # To install the proprietary flavor, packages nvidia-kernel-dkms and nvidia-driver should be installed:
 
-# sudo apt install -y nvidia-kernel-dkms nvidia-driver
+wget https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cuda-toolkit-13-1
 
-# To instead install the open flavor, replace
-
-sudo apt install -y nvidia-open-kernel-dkms nvidia-driver
+sudo apt-get install -y nvidia-open
+# sudo apt-get install -y cuda-drivers
 
 # Post-installation steps for Trixie
 
