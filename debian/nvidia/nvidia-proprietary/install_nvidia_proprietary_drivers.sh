@@ -21,7 +21,6 @@ sudo apt-get update
 sudo apt-get -y install cuda-toolkit-13-1
 
 sudo apt-get install -y nvidia-open
-# sudo apt-get install -y cuda-drivers
 
 # Post-installation steps for Trixie
 
@@ -35,9 +34,9 @@ sudo update-grub
 
 # To install the helper scripts, install the nvidia-suspend-common package. Afterwards you need to enable them:
 
-# sudo systemctl enable nvidia-suspend.service
-# sudo systemctl enable nvidia-hibernate.service
-# sudo systemctl enable nvidia-resume.service
+sudo systemctl enable nvidia-suspend.service
+sudo systemctl enable nvidia-hibernate.service
+sudo systemctl enable nvidia-resume.service
 
 # In addition, you will need to verify whether the PreserveVideoMemoryAllocations NVIDIA module parameter is turned on. Without the parameter being enabled, the udev rules in /usr/lib/udev/rules.d/61-gdm.rules will force a fallback to X11. To check the value of PreserveVideoMemoryAllocations:
 
