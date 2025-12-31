@@ -12,7 +12,11 @@ sudo apt install -y linux-headers-$(uname -r) linux-headers-generic
 
 # To install the proprietary flavor, packages nvidia-kernel-dkms and nvidia-driver should be installed:
 
-sudo apt install -y nvidia-kernel-dkms nvidia-driver
+# sudo apt install -y nvidia-kernel-dkms nvidia-driver
+
+# To instead install the open flavor, replace
+
+sudo apt install -y nvidia-open-kernel-dkms nvidia-driver
 
 # Post-installation steps for Trixie
 
