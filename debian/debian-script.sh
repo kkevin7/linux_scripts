@@ -2,6 +2,9 @@
 # sudo cp -r /etc/default/grub /etc/default/grub.bak
 # sudo cp -fr ./grub /etc/default/grub
 
+#-------------------- Variables --------------------
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 #-------------------- Update OS  --------------------
 sudo apt-get update
 sudo apt-get install -y software-properties-common
@@ -11,12 +14,6 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-relea
 apt-get install -y sudo
 #sudo adduser $USER sudo
 sudo usermod -a -G sudo $USER
-
-#-------------------- Nvidia -----------------------------------
-#sudo apt-get install -y linux-headers-$(uname -r) build-essential libglvnd-dev pkg-config
-#sudo apt update && sudo apt install -y nvidia-detect
-#sudo nvidia-detect
-#sudo apt-get install -y nvidia-driver
 
 #-------------------- Build Commands ------------------
 sudo apt-get install -y build-essential gettext sassc
@@ -60,7 +57,6 @@ sudo apt-get update
 sudo apt-get install -y code
 
 #Extensions
-SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 sh ${SCRIPT_PATH}/../vscode/vscode-extensions.sh
 
 #--------------------- Google Antigravity -------------------
