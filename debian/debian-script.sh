@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #-------------------- Debian Grub configuration  --------------------
 # sudo cp -r /etc/default/grub /etc/default/grub.bak
 # sudo cp -fr ./grub /etc/default/grub
@@ -57,7 +59,7 @@ sudo apt-get update
 sudo apt-get install -y code
 
 #Extensions
-sh ${SCRIPT_PATH}/../vscode/vscode-extensions.sh
+bash ${SCRIPT_PATH}/../vscode/vscode-extensions.sh
 
 #--------------------- Google Antigravity -------------------
 sudo mkdir -p /etc/apt/keyrings
@@ -136,11 +138,17 @@ sudo apt-get install -y maven
 #---------------- Filezilla -----------------------------
 sudo apt-get install -y filezilla
 
+#--------------------- WireGuard -----------------------------------
+sudo apt install -y wireguard
+
+#--------------------- OBS Studio -----------------------------------
+sudo apt install -y obs-studio
+
+#--------------------- Peek (GIFs recorder) -----------------------------------
+sudo apt install -y peek
+
 #------------ NodeJS --------------------
-cd /tmp
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-source ~/.profile
-nvm install node
+bash ${SCRIPT_PATH}/nvm/install-nvm.sh
 
 #React
 sudo npm i -g create-react-app
@@ -246,9 +254,6 @@ sudo usermod -a -G wireshark $USER
 sudo chgrp $(id -un) /usr/bin/dumpcap
 sudo chmod +x /usr/bin/dumpcap
 sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
-
-#--------------------- WireGuard -----------------------------------
-sudo apt install -y wireguard
 
 #--------------------- Snap -----------------------------------
 sudo apt-get install -y snapd
