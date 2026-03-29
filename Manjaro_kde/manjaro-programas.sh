@@ -43,6 +43,9 @@ yay -S --noconfirm visual-studio-code-bin
 #------- extensions -------------
 sh ../vscode/vscode-extensions.sh
 
+#------- Google Antigravity -------------
+yay -S --noconfirm antigravity
+
 #---------- Postman ----------------
 yay -S --noconfirm postman-bin
 
@@ -70,10 +73,10 @@ sudo pacman -S --noconfirm tree
 #yay -S --noconfirm phpstrom
 
 #---------- Python ----------------
-sudo pacman -S python-pip
+sudo pacman -S --noconfirm python-pip
 
 #---------- PyCharm ----------------
-sudo pacman -S pycharm-community-edition
+sudo pacman -S --noconfirm pycharm-community-edition
 
 #----------- obsidian ----------------------
 sudo pacman -S --noconfirm obsidian
@@ -135,9 +138,6 @@ yay -S --noconfirm gnome-keyring
 #----------- PgModeler Postgres --------------------------
 #yay -S --noconfirm pgmodeler
 
-#------------ Foxit Reader -----------------------
-yay -S --noconfirm foxitreader
-
 #------------ Gimp ----------------------
 #sudo pacman -S --noconfirm gimp
 
@@ -164,11 +164,20 @@ echo "PATH=\"$HOME/.config/composer/vendor/bin:$PATH\"" >> ~/.zshrc
 
 #------------ nvm ------------------------------
 sudo pacman -S --noconfirm nvm
-echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
-echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
+
+# Add nvm initialization to shells
+grep -qxF 'source /usr/share/nvm/init-nvm.sh' ~/.bashrc || \
+  echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
+
+grep -qxF 'source /usr/share/nvm/init-nvm.sh' ~/.zshrc || \
+  echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
+
+# Load nvm for current bash session
+export NVM_DIR="/usr/share/nvm"
+source /usr/share/nvm/init-nvm.sh
+
+# Optional: verify nvm
+nvm --version
 
 cat /proc/sys/fs/inotify/max_user_watches
 # sudo sysctl fs.inotify.max_user_watches=65535
@@ -205,9 +214,6 @@ sudo pacman -S --noconfirm supervisor
 #----------- Flameshot -----------------------
 sudo pacman -S --noconfirm flameshot
 
-#----------- Robo 3T for MongoDB -----------------------
-yay -S --noconfirm robo3t-bin 
-
 #----------- Slack desktop -----------------------
 yay -S --noconfirm slack-desktop
 
@@ -215,7 +221,13 @@ yay -S --noconfirm slack-desktop
 sudo snap install datagrip --classic
 
 #---------- OBS Studio ---------------------
-sudo snap install obs-studio --classic
+sudo pacman -S --noconfirm --needed obs-studio pipewire pipewire-alsa pipewire-pulse wireplumber
+# Instalar módulo virtual camera (AUR)
+yay -S --noconfirm --needed v4l2loopback-dkms
+# Activar servicios de audio
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
+# Cargar cámara virtual
+sudo modprobe v4l2loopback devices=1 video_nr=10 card_label="OBS Virtual Camera" exclusive_caps=1
 
 #----------- Filezilla --------------------------
 sudo pacman -S --noconfirm filezilla
@@ -281,6 +293,8 @@ yay -S --noconfirm android-studio
 #Android SDK Command-line Tools (necessary)
 
 #---------- Nvidia Libraries -----------------
+sudo pacman -S --noconfirm linux$(uname -r | sed -E 's/^([0-9]+)\.([0-9]+).*/\1\2/')-headers
+sudo pacman -S --noconfirm base-devel dkms
 sudo pacman -S --noconfirm mhwd mhwd-nvidia
 sudo mhwd -i pci video-nvidia
 sudo pacman -S --noconfirm cuda cudnn python-tensorflow-opt-cuda
@@ -290,10 +304,6 @@ sudo pacman -S --noconfirm cuda cudnn python-tensorflow-opt-cuda
 
 #---------- Intellij IDE Comunity -----------------
 #sudo pacman -S --noconfirm intellij-idea-community-edition
-
-#----------- Ollama -----------------------
-curl -fsSL https://ollama.com/install.sh | sh
-
 
 ########################################################################################
 
